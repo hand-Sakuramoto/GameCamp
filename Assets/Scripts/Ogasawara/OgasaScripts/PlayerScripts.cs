@@ -232,7 +232,7 @@ public class PlayerScripts : MonoBehaviour
     //植木鉢の巨大化処理(10/7 18:21)
     private void UekibachiGiantMode()
     {
-        Uekibachi.transform.localScale += new Vector3(UekibachiGiantSize, UekibachiGiantSize, UekibachiGiantSize);
+        Uekibachi.transform.localScale *= UekibachiGiantSize;
 
         //マテリアル変化処理(10/7 18:30)
     }

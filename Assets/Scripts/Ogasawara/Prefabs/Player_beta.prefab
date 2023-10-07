@@ -165,7 +165,7 @@ MonoBehaviour:
   UekibatiPowerUpCountMax: 5
   Damage: 0
   Uekibachi: {fileID: 2693727396971859530}
-  UekibachiGiantSize: 0
+  UekibachiGiantSize: 1.25
 --- !u!1001 &3000350741391209243
 PrefabInstance:
   m_ObjectHideFlags: 0
