@@ -17,14 +17,16 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 
     [Header("プレイヤースピード減少補正係数(小さければ小さいほど抑制力強)")] public float PlayerSpeedDownCorrection;
 
-    [Header("持っているミントの数")] public float MintNum = 0;
+    [Header("持っているミントの数")] public int MintNum = 0;
     [Header("プレイヤーの体力")] public int PlayerHP;
 
-    [Header("ミント最大保持数")] public float MintNumMaxCount = 100; 
+    [Header("ミント最大保持数")] public int MintNumMaxCount = 100; 
 
     [Header("ミントが自動で増えるまでの時間")] public float AutoMintNumUpTime;
 
     [Header("自動でミントが増える量")] public float MintUpNum;
+
+    private float MintUpSum;
 
     [Header("栄養剤バフの効果時間")] public float EiyouzaiBuffTime;
 
@@ -38,7 +40,7 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
     [Header("持っている植木鉢の破片の数")] public float UekibatiNum;
     [Header("植木鉢強化までの破片数")] public float UekibatiPowerUpCountMax;
 
-    [Header("障害物にヒット時のダメージ量")] public float Damage;
+    [Header("障害物にヒット時のダメージ量")] public int Damage;
 
     [Header("植木鉢")] public GameObject Uekibachi;
 
@@ -161,7 +163,13 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
             if (AutoMintNumUpTimeNow <= 0)
             {
                 AutoMintNumUpTimeNow = AutoMintNumUpTime;
-                MintNum += MintUpNum;
+                MintUpSum += MintUpNum;
+
+                if (MintUpSum > 1)
+                {
+                    MintUpSum -= 1;
+                    MintNum++;
+                }
 
                 //ミント数依存のスピード変化処理へ
                 MintSpeedChange();
@@ -202,7 +210,7 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
     {
         if(MintNum > 0　&& MintNum < MintNumMaxCount)
         {
-            PlayerSpeed = PlayerSpeed - PlayerSpeed * PlayerSpeedDownCorrection * MintNum / MintNumMaxCount;
+            PlayerSpeed = PlayerSpeed - PlayerSpeed * PlayerSpeedDownCorrection * MintNum / (float)MintNumMaxCount;
             if (PlayerSpeed <= 0)
             {
                 PlayerSpeed = MinPlayerSpeed;
