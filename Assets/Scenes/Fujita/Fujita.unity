@@ -218,6 +218,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3202869625892275228, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4325795476323861618, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
       propertyPath: m_Name
       value: potPiece (3)
@@ -286,6 +290,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3202869625892275228, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4325795476323861618, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
       propertyPath: m_Name
       value: potPiece (7)
@@ -354,6 +362,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3202869625892275228, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4325795476323861618, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
       propertyPath: m_Name
       value: potPiece (9)
@@ -577,6 +589,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3202869625892275228, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4325795476323861618, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
       propertyPath: m_Name
       value: potPiece (6)
@@ -799,6 +815,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3202869625892275228, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4325795476323861618, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
       propertyPath: m_Name
       value: potPiece (4)
@@ -867,6 +887,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3202869625892275228, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4325795476323861618, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
       propertyPath: m_Name
       value: potPiece (1)
@@ -953,6 +977,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3202869625892275228, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4325795476323861618, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
       propertyPath: m_Name
       value: potPiece (5)
@@ -1021,6 +1049,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3202869625892275228, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4325795476323861618, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
       propertyPath: m_Name
       value: potPiece (11)
@@ -1183,6 +1215,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3202869625892275228, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4325795476323861618, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
       propertyPath: m_Name
       value: potPiece (8)
@@ -1457,6 +1493,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3202869625892275228, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4325795476323861618, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
       propertyPath: m_Name
       value: potPiece (10)
@@ -1525,6 +1565,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3202869625892275228, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4325795476323861618, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
       propertyPath: m_Name
       value: potPiece (2)
@@ -1641,6 +1685,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: nutrition
       objectReference: {fileID: 0}
+    - target: {fileID: 9067565361449192171, guid: 4833e6b845ff2c346821bccf55027e2a, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1657,6 +1705,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 630545606454673505, guid: 92687ed991dffac49bfb0f01126d424f, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1222917371502143979, guid: 92687ed991dffac49bfb0f01126d424f, type: 3}
       propertyPath: m_Name
       value: rock00
@@ -1765,6 +1817,10 @@ PrefabInstance:
     - target: {fileID: 1546947331635289571, guid: 9d4d69d9e04f69948a4bddc6ad4e0605, type: 3}
       propertyPath: m_TagString
       value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7092158815605604982, guid: 9d4d69d9e04f69948a4bddc6ad4e0605, type: 3}
+      propertyPath: m_Height
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1894,6 +1950,10 @@ PrefabInstance:
     - target: {fileID: 4371108519324845226, guid: 1b11bcc295b08d8459d1f8b95240745c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134620744308309799, guid: 1b11bcc295b08d8459d1f8b95240745c, type: 3}
+      propertyPath: m_Height
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
