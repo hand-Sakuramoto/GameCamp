@@ -19,6 +19,7 @@ public class CameraManager : MonoBehaviour
     private void Start()
     {
         m_PlayerScripts = PlayerScripts.Instance;
+        m_Camera.transform.position = m_PlayerScripts.transform.position + m_Offset;
     }
 
     void Update()
