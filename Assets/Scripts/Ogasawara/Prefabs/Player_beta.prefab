@@ -151,6 +151,11 @@ MonoBehaviour:
   PlayerSpeed: 5
   MintNum: 0
   PlayerHP: 3
-  AutoMintNumUpTime: 180
+  AutoMintNumUpTime: 0
   MintUpNum: 0.025
-  MintTextBeta: {fileID: 0}
+  EiyouzaiBuffTime: 0
+  EiyouzaiBuffUpCount: 300
+  AutoMintNumTimeBuffCount: 0
+  InitialAutoMintNumUpTime: 180
+  UekibatiNum: 0
+  UekibatiPowerUpCountMax: 5

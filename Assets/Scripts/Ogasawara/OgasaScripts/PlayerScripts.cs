@@ -10,9 +10,11 @@ public class PlayerScripts : MonoBehaviour
     [Header("持っているミントの数")] public float MintNum = 0;
     [Header("プレイヤーの体力")] public int PlayerHP;
 
+    [Header("ミント最大保持数")] public float MintNumMaxCount = 100; 
+
     [Header("ミントが自動で増えるまでの時間")] public float AutoMintNumUpTime;
 
-    [Header("自動ミントが増える量")] public float MintUpNum;
+    [Header("自動でミントが増える量")] public float MintUpNum;
 
     [Header("栄養剤バフの効果時間")] public float EiyouzaiBuffTime;
 
@@ -25,6 +27,8 @@ public class PlayerScripts : MonoBehaviour
 
     [Header("持っている植木鉢の破片の数")] public float UekibatiNum;
     [Header("植木鉢強化までの破片数")] public float UekibatiPowerUpCountMax;
+
+    [Header("障害物にヒット時のダメージ量")] public float Damage;
 
 
     private Rigidbody rb; //RigidBody宣言　(10/7 12:22)
@@ -94,6 +98,15 @@ public class PlayerScripts : MonoBehaviour
                     AutoMintNumUpTimeNow = AutoMintNumUpTime;
                     MintNum += MintUpNum;
 
+                    //ミント数依存のスピードダウン処理へ
+                    MintSpeedDown();
+
+                    //持っているミント数の上限設定
+                    if (MintNum >= MintNumMaxCount)
+                    {
+                        MintNum = MintNumMaxCount;
+                    }
+
                     //ミント数の仮表示(10/7 13:16)
                     //MintTextBeta.text = "MintNum:" + MintNum;
                 }
@@ -142,7 +155,38 @@ public class PlayerScripts : MonoBehaviour
 
     }
 
+    //障害物に当たった時のミント数、体力減少処理(10/7 15:41)
+    public void HitDamage()
+    {
+        //ミントを持っていたらミントを減少
+        if(MintNum > 0 && PlayerHP > 0)
+        {
+            MintNum -= Damage;
 
+            if(MintNum <= 0)
+            {
+                MintNum = 0;
+            }
 
+            
+        }
+
+        //ミントを持っていなかったらプレイヤーの体力減少
+        else if(MintNum <= 0 && PlayerHP > 0)
+        {
+            PlayerHP -= 1;
+            if(PlayerHP <= 0)
+            {
+                PlayerHP = 0;
+                //プレイヤー一定時間行動不能処理
+            }
+        }
+    }
+
+    //持っているミント数でのスピードダウン処理(10/7 16:03)
+    private void MintSpeedDown()
+    {
+        PlayerSpeed = PlayerSpeed * MintNum / MintNumMaxCount ;
+    }
     
 }
