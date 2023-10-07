@@ -18,9 +18,9 @@ public class scoreUI : MonoBehaviour
     public void AddScore(int addScore)
     {
         Score = Score  + addScore;
-        if (Score > 999)
+        if (Score > 9999)
         {
-            text.text = "999";
+            text.text = "9999";
         }
         else
         {
@@ -28,9 +28,9 @@ public class scoreUI : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        AddScore(1);
-    }
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    AddScore(1);
+    //}
 }

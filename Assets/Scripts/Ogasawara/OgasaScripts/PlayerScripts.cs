@@ -4,8 +4,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerScripts : MonoBehaviour
+public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 {
+    protected override bool IsDontDestroyOnLoad { get { return false; } }
+
+
     [Header("プレイヤー移動速度")] public float PlayerSpeed;
     [Header("プレイヤー移動速度の下限")] public float MinPlayerSpeed;
     [Header("プレイヤー移動速度初期値")]public float InitialPlayerSpeed; 
@@ -46,13 +49,13 @@ public class PlayerScripts : MonoBehaviour
 
     private float AutoMintNumUpTimeNow;//現在のミントが自動で増えるまでの時間　(10/7 13:47)
 
-    private int PlayableNum = 0; //変数によるプレイヤー操作可能タイミング制限（0が操作可能、1が準備、ゲーム終了時など操作不能時）
+    private int PlayableNum = 1; //変数によるプレイヤー操作可能タイミング制限（0が操作可能、1が準備、ゲーム終了時など操作不能時）
 
     private bool isEiyouzaiBuff = false; //栄養剤バフ中かどうかの切り替え変数　(10/7 15:04)
 
     //[Header("持っているミント数の仮のテキスト表示")] public TextMeshProUGUI MintTextBeta;
 
-    
+
 
 
     // Start is called before the first frame update
@@ -269,6 +272,11 @@ public class PlayerScripts : MonoBehaviour
     public void TimeOverEnd()
     {
         PlayableNum = 1;
+    }
+
+    public void GameStart()
+    {
+        PlayableNum = 0;
     }
 
 	// 当たり判定
