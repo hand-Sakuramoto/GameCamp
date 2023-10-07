@@ -136,7 +136,7 @@ public class PlayerScripts : MonoBehaviour
                     MintNum = MintNumMaxCount;
                 }
 
-                Debug.Log(MintNum);
+               // Debug.Log(MintNum);
                 //ミント数の仮表示(10/7 13:16)
                 //MintTextBeta.text = "MintNum:" + MintNum;
             }
