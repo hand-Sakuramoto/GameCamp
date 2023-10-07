@@ -16,10 +16,11 @@ public class scoreUI : SingletonMonoBehaviour<scoreUI>
     void Start()
     {
         Score = 0;
+        text.text = Score.ToString();
     }
     public void AddScore(int addScore)
     {
-        Score = Score  + addScore;
+        Score = Score + addScore;
         if (Score > 9999)
         {
             text.text = "9999";

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class goal : MonoBehaviour
 {
-	// ƒƒ“ƒo•Ï”‚ğéŒ¾
-	private int m_nNumMint = 0; // ƒ~ƒ“ƒg‚Ì‘”
+	// ãƒ¡ãƒ³ãƒå¤‰æ•°ã‚’å®£è¨€
+	private int m_nNumMint = 0; // ãƒŸãƒ³ãƒˆã®ç·æ•°
 
 	// Start is called before the first frame update
 	void Start()
@@ -19,20 +19,24 @@ public class goal : MonoBehaviour
 
 	}
 
-	// “–‚½‚è”»’è
+	// å½“ãŸã‚Šåˆ¤å®š
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == "Player")
-		{ // ƒvƒŒƒCƒ„[‚Ìê‡
+		{ // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®å ´åˆ
 
-			// ƒfƒoƒbƒO•\¦
+			// ãƒ‡ãƒãƒƒã‚°è¡¨ç¤º
 			Debug.Log("Hit");
 
-			// ƒvƒŒƒCƒ„[‚ÌŠƒ~ƒ“ƒg”‚ğ‰ÁZ
-			m_nNumMint += (int)other.gameObject.GetComponent<PlayerScripts>().MintNum;
+			// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®æ‰€æŒãƒŸãƒ³ãƒˆæ•°ã‚’åŠ ç®—
+			int addMintNum = other.gameObject.GetComponent<PlayerScripts>().MintNum;
 
-			// Šƒ~ƒ“ƒg”‚ğƒŠƒZƒbƒg
-			other.gameObject.GetComponent<PlayerScripts>().MintReturn();
+            scoreUI.Instance.AddScore(addMintNum);
+
+            m_nNumMint += addMintNum;
+
+            // æ‰€æŒãƒŸãƒ³ãƒˆæ•°ã‚’ãƒªã‚»ãƒƒãƒˆ
+            other.gameObject.GetComponent<PlayerScripts>().MintReturn();
 		}
 	}
 }
