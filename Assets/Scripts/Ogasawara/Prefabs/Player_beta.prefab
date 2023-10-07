@@ -151,3 +151,6 @@ MonoBehaviour:
   PlayerSpeed: 5
   MintNum: 0
   PlayerHP: 3
+  AutoMintNumUpTime: 180
+  MintUpNum: 0.025
+  MintTextBeta: {fileID: 0}
