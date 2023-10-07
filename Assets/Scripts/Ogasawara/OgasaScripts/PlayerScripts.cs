@@ -12,7 +12,11 @@ public class PlayerScripts : MonoBehaviour
 
     [Header("ミントが自動で増えるまでの時間")] public float AutoMintNumUpTime;
 
-    [Header("ミントが増える量")] public float MintUpNum; 
+    [Header("自動ミントが増える量")] public float MintUpNum;
+
+    [Header("持っている植木鉢の破片の数")] public float UekibatiNum;
+    [Header("植木鉢強化までの破片数")] public float UekibatiPowerUpCountMax;
+
 
     private Rigidbody rb; //RigidBody宣言　(10/7 12:22)
 
@@ -84,4 +88,7 @@ public class PlayerScripts : MonoBehaviour
             }
         }
     }
+
+
+   
 }
