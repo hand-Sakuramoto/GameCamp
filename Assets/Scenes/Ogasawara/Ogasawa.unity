@@ -610,6 +610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_beta
       objectReference: {fileID: 0}
+    - target: {fileID: 4171671422020423042, guid: 30ff800a2b5b95b4b92a310cae38ff96, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5362874548499192845, guid: 30ff800a2b5b95b4b92a310cae38ff96, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -656,7 +660,7 @@ PrefabInstance:
       objectReference: {fileID: 726907761296572545}
     - target: {fileID: 6805382265512565374, guid: 30ff800a2b5b95b4b92a310cae38ff96, type: 3}
       propertyPath: AutoMintNumUpTime
-      value: 90
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
