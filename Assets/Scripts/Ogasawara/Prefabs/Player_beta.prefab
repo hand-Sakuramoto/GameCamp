@@ -151,16 +151,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSpeed: 5
   MinPlayerSpeed: 0.25
-  PlayerSpeedDownCorrection: 0.0025
+  InitialPlayerSpeed: 5
+  PlayerSpeedDownCorrection: 1
   MintNum: 0
   PlayerHP: 3
   MintNumMaxCount: 100
-  AutoMintNumUpTime: 1800
+  AutoMintNumUpTime: 3
   MintUpNum: 0.025
   EiyouzaiBuffTime: 0
   EiyouzaiBuffUpCount: 300
   AutoMintNumTimeBuffCount: 0
-  InitialAutoMintNumUpTime: 180
+  InitialAutoMintNumUpTime: 5
   UekibatiNum: 0
   UekibatiPowerUpCountMax: 5
   Damage: 0
