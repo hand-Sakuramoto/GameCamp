@@ -8,6 +8,8 @@ public class PlayerScripts : MonoBehaviour
 {
     [Header("プレイヤー移動速度")] public float PlayerSpeed;
     [Header("プレイヤー移動速度の下限")] public float MinPlayerSpeed;
+    [Header("プレイヤー移動速度初期値")]public float InitialPlayerSpeed; 
+
 
     [Header("プレイヤースピード減少補正係数(小さければ小さいほど抑制力強)")] public float PlayerSpeedDownCorrection;
 
@@ -60,6 +62,9 @@ public class PlayerScripts : MonoBehaviour
         InitialAutoMintNumUpTime = AutoMintNumUpTime;
         AutoMintNumUpTimeNow = AutoMintNumUpTime;
 
+        //移動速度の初期化
+        PlayerSpeed = InitialPlayerSpeed;
+
         //MintTextBeta.text = "MintNum:" + MintNum;
     }
 
@@ -102,8 +107,7 @@ public class PlayerScripts : MonoBehaviour
             //ミント処理
             MintFunction();
 
-            //ミント数依存のスピードダウン処理へ
-            MintSpeedDown();
+            
 
 
         }
@@ -117,11 +121,14 @@ public class PlayerScripts : MonoBehaviour
         //自動で持っているミント数が増える処理
         if (AutoMintNumUpTimeNow > 0)
         {
-            AutoMintNumUpTimeNow--;
+            AutoMintNumUpTimeNow-= Time.deltaTime;
             if (AutoMintNumUpTimeNow <= 0)
             {
                 AutoMintNumUpTimeNow = AutoMintNumUpTime;
                 MintNum += MintUpNum;
+
+                //ミント数依存のスピード変化処理へ
+                MintSpeedChange();
 
                 //持っているミント数の上限設定
                 if (MintNum >= MintNumMaxCount)
@@ -129,6 +136,7 @@ public class PlayerScripts : MonoBehaviour
                     MintNum = MintNumMaxCount;
                 }
 
+                Debug.Log(MintNum);
                 //ミント数の仮表示(10/7 13:16)
                 //MintTextBeta.text = "MintNum:" + MintNum;
             }
@@ -139,7 +147,7 @@ public class PlayerScripts : MonoBehaviour
         {
             if (EiyouzaiBuffTime > 0)
             {
-                EiyouzaiBuffTime--;
+                EiyouzaiBuffTime -= Time.deltaTime;
 
                 //栄養剤バフの効果時間が０になったら効果制限時間リセット
                 if (EiyouzaiBuffTime <= 0)
@@ -153,8 +161,8 @@ public class PlayerScripts : MonoBehaviour
         }
     }
 
-    //持っているミント数でのスピードダウン処理(10/7 16:03)
-    private void MintSpeedDown()
+    //持っているミント数でのスピード変化処理(10/7 16:03)
+    private void MintSpeedChange()
     {
         if(MintNum > 0　&& MintNum < MintNumMaxCount)
         {
@@ -227,12 +235,15 @@ public class PlayerScripts : MonoBehaviour
     public void MintReturn()
     {
         MintNum = 0;
+
+        //プレイヤー移動速度リセット
+        PlayerSpeed = InitialPlayerSpeed;
     }
 
     //植木鉢の巨大化処理(10/7 18:21)
     private void UekibachiGiantMode()
     {
-        Uekibachi.transform.localScale += new Vector3(UekibachiGiantSize, UekibachiGiantSize, UekibachiGiantSize);
+        Uekibachi.transform.localScale *= UekibachiGiantSize;
 
         //マテリアル変化処理(10/7 18:30)
     }
