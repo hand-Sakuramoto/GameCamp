@@ -18,7 +18,7 @@ public class TitileScene : MonoBehaviour
 
     void ChangeScene()
     {
-        SceneManager.LoadScene("Rusult");
+        SceneManager.LoadScene("Result");
     }
 
 }
