@@ -6,19 +6,19 @@ using UnityEngine.UI;
 public class TotalScore : MonoBehaviour
 {
     public Text ScoreText;
-    int score = PlayerPrefs.GetInt("ResultScore");
+    int score;
 
     // Start is called before the first frame update
     void Start()
     {
         score = TargetGene.getscore();
-
-        ScoreText.text = string.Format("Score:{0}", score);
+        score = PlayerPrefs.GetInt("ResultScore");
+        ScoreText.text = string.Format("Score:{0}", score)+"本";
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
