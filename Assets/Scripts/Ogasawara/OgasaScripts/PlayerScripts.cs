@@ -20,7 +20,7 @@ public class PlayerScripts : MonoBehaviour
 
     private Rigidbody rb; //RigidBody宣言　(10/7 12:22)
 
-    private float AutoMintNumUpTimeNow;
+    private float AutoMintNumUpTimeNow;//現在のミントが自動で増えるまでの時間　(10/7 13:47)
 
     private int PlayableNum = 0; //変数によるプレイヤー操作可能タイミング制限（0が操作可能、1が準備、ゲーム終了時など操作不能時）
 
@@ -32,7 +32,7 @@ public class PlayerScripts : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-
+        ///ミントが自動で増えるまでの時間の初期化　(10/7 13:47)
         AutoMintNumUpTimeNow = AutoMintNumUpTime;
 
         MintTextBeta.text = "MintNum:" + MintNum;
@@ -88,7 +88,18 @@ public class PlayerScripts : MonoBehaviour
             }
         }
     }
+    //植木鉢の破片を獲得した処理(10/7 13:45)
+    public void UekibatiCountUp()
+    {
+        UekibatiNum += 1;
 
+        //破片を全部取った時に植木鉢強化(10/7 13:46)
+        if (UekibatiNum >= UekibatiPowerUpCountMax)
+        {
 
-   
+            UekibatiNum = 0;
+        }
+    }
+
+    
 }
