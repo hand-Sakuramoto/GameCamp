@@ -35,6 +35,14 @@ public class ResultScene : MonoBehaviour
       int score = PlayerPrefs.GetInt("ResultScore");
       Debug.Log(score);
 
+      //同一順位でランキングが埋まらないように処理をスキップ
+      if(score == score1){goto label;}
+      if(score == score2){goto label;}
+      if(score == score3){goto label;}
+      if(score == score4){goto label;}
+      if(score == score5){goto label;}
+
+
       //順位に並べる
       if (score1 < score)
         {
@@ -67,7 +75,7 @@ public class ResultScene : MonoBehaviour
         {
 
         };
-
+    label:
 
       //新しい値のセット
       PlayerPrefs.SetInt("score1", score1);
@@ -76,7 +84,6 @@ public class ResultScene : MonoBehaviour
       PlayerPrefs.SetInt("score4", score4);
       PlayerPrefs.SetInt("score5", score5);
       PlayerPrefs.Save();
-
 
       //ランキングの表示換えをここでする。
       ScoreText1.text =  score1.ToString();
