@@ -151,7 +151,7 @@ public class PlayerScripts : MonoBehaviour
     //持っているミント数でのスピードダウン処理(10/7 16:03)
     private void MintSpeedDown()
     {
-        if(MintNum > 0)
+        if(MintNum > 0　&& MintNum < MintNumMaxCount)
         {
             PlayerSpeed = PlayerSpeed - PlayerSpeed * PlayerSpeedDownCorrection * MintNum / MintNumMaxCount;
             if (PlayerSpeed <= 0)
