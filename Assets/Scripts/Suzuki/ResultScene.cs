@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
@@ -24,10 +26,42 @@ public class ResultScene : MonoBehaviour
       int score2 = PlayerPrefs.GetInt("score2");
       int score3 = PlayerPrefs.GetInt("score3");
       int score4 = PlayerPrefs.GetInt("score4");
-      int score5 = PlayerPrefs.GetInt("score5");  
+      int score5 = PlayerPrefs.GetInt("score5");
+
+      int score = 0;
 
       //順位に並べる
-      
+      if (score1 < score)
+        {
+            score5 = score4;
+            score4 = score3;
+            score3 = score2;
+            score2 = score1;
+            score1 = score;
+        }
+        else if (score2 < score)
+        {
+            score5 = score4;
+            score4 = score3;
+            score3 = score2;
+            score2 = score;
+        }else if (score3 < score)
+        {
+            score5 = score4;
+            score4 = score3;
+            score3 = score;
+        }else if (score4 < score)
+        {
+            score5 = score4;
+            score4 = score;
+        }else if (score5 < score)
+        {
+            score5 = score;
+        }
+        else
+        {
+
+        };
 
 
 
@@ -53,6 +87,7 @@ public class ResultScene : MonoBehaviour
     void Update()
     {
         if(Input.anyKey){
+
            //audioSource.PlayOneShot(sound);//SEを鳴らす
            Invoke("ChangeScene", 0.25f);//シーンをまたぐとSEが破棄され、途切れるため、少し待つ対処をとる。
         }
