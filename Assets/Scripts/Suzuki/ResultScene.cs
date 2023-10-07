@@ -33,6 +33,7 @@ public class ResultScene : MonoBehaviour
       int score5 = PlayerPrefs.GetInt("score5");
 
       int score = PlayerPrefs.GetInt("ResultScore");
+      Debug.Log(score);
 
       //順位に並べる
       if (score1 < score)

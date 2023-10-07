@@ -33,7 +33,7 @@ public class scoreUI : SingletonMonoBehaviour<scoreUI>
     public void GameEnd()
     {
         Score = Mathf.Min(Score, 9999);
-        PlayerPrefs.SetInt("score5", Score);
+        PlayerPrefs.SetInt("ResultScore", Score);
         PlayerPrefs.Save();
     }
 
