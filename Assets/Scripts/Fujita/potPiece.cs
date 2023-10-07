@@ -6,6 +6,7 @@ public class potPiece : MonoBehaviour
 {
 	// メンバ変数を宣言
 	[SerializeField] public Object thisObject;	// 自身のオブジェクト
+	[SerializeField] public PlayerScripts PS;	// プレイヤープレハブ
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,9 @@ public class potPiece : MonoBehaviour
 
 			// 自身を破棄
 			Destroy(thisObject);
+
+			// 植木鉢の破片を獲得
+			PS.UekibatiCountUp();
 		}
 	}
 }

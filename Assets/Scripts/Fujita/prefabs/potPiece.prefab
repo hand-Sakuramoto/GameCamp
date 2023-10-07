@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisObject: {fileID: 4325795476323861618}
+  PS: {fileID: 6805382265512565374, guid: 30ff800a2b5b95b4b92a310cae38ff96, type: 3}
 --- !u!1001 &6717827766374269648
 PrefabInstance:
   m_ObjectHideFlags: 0
