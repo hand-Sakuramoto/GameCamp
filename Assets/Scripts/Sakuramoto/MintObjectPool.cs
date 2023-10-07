@@ -8,7 +8,7 @@ public class MintObjectPool : ObjectPool<MintObject>
     private List<MintObject> m_ActiveList;
 
     [SerializeField]
-    private int m_InitializeCount = 10;
+    private int m_InitializeCount = 500;
 
 	[SerializeField]
 	public PlayerScripts PS;    // プレイヤースクリプト
