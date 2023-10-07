@@ -34,6 +34,9 @@ public class PlayerScripts : MonoBehaviour
 
     [Header("障害物にヒット時のダメージ量")] public float Damage;
 
+    [Header("植木鉢")] public GameObject Uekibachi;
+
+    [Header("植木鉢のスケール巨大化係数")] public float UekibachiGiantSize;
 
     private Rigidbody rb; //RigidBody宣言　(10/7 12:22)
 
@@ -44,6 +47,8 @@ public class PlayerScripts : MonoBehaviour
     private bool isEiyouzaiBuff = false; //栄養剤バフ中かどうかの切り替え変数　(10/7 15:04)
 
     //[Header("持っているミント数の仮のテキスト表示")] public TextMeshProUGUI MintTextBeta;
+
+    
 
 
     // Start is called before the first frame update
@@ -171,8 +176,8 @@ public class PlayerScripts : MonoBehaviour
         //破片を全部取った時に植木鉢強化(10/7 13:46)
         if (UekibatiNum >= UekibatiPowerUpCountMax)
         {
-
             UekibatiNum = 0;
+            UekibachiGiantMode();
         }
     }
     //栄養剤バフによるミント増殖スピードアップ処理(10/7 15:02)
@@ -222,6 +227,14 @@ public class PlayerScripts : MonoBehaviour
     public void MintReturn()
     {
         MintNum = 0;
+    }
+
+    //植木鉢の巨大化処理(10/7 18:21)
+    private void UekibachiGiantMode()
+    {
+        Uekibachi.transform.localScale += new Vector3(UekibachiGiantSize, UekibachiGiantSize, UekibachiGiantSize);
+
+        //マテリアル変化処理(10/7 18:30)
     }
 
     //タイムオーバー時の操作不能処理(10/7 17:43)
