@@ -189,7 +189,6 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 				{
 					MintUpSum -= 1;
 					MintNum++;
-					m_mintPool.Create();
 				}
 
 				//ミント数依存のスピード変化処理へ
@@ -274,13 +273,6 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 		{
 			MintNum -= Damage;
 
-			for (int nCntPlayer = 0; nCntPlayer < Damage; nCntPlayer++)
-			{ // ダメージ数分繰り返す
-
-				// ミントを破棄
-				m_mintPool.Release();
-			}
-
 			EiyouzaiBuffTime = 0;
 
 			if (MintNum <= 0)
@@ -308,9 +300,6 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 	public void MintReturn()
 	{
 		MintNum = 0;
-
-		// ミント全破棄
-		m_mintPool.ReleaseAll();
 
 		//プレイヤー移動速度リセット
 		PlayerSpeed = InitialPlayerSpeed;
