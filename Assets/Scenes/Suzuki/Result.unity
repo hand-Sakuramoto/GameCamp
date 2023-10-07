@@ -872,10 +872,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeTexts: {fileID: 0}
   ScoreText1: {fileID: 1326749241}
-  ScoreText2: {fileID: 0}
-  ScoreText3: {fileID: 0}
-  ScoreText4: {fileID: 0}
-  ScoreText5: {fileID: 0}
+  ScoreText2: {fileID: 1031629095}
+  ScoreText3: {fileID: 48398318}
+  ScoreText4: {fileID: 1052080054}
+  ScoreText5: {fileID: 1577423840}
 --- !u!4 &1497269621
 Transform:
   m_ObjectHideFlags: 0
