@@ -17,8 +17,15 @@ public class scoreUI : MonoBehaviour
     }
     public void AddScore(int addScore)
     {
-        Score = Score + addScore;
-        text.text = Score.ToString();
+        Score = Score  + addScore;
+        if (Score > 999)
+        {
+            text.text = "999";
+        }
+        else
+        {
+            text.text = Score.ToString();
+        }
     }
 
     // Update is called once per frame
