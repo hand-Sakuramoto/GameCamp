@@ -87,36 +87,25 @@ public class PlayerScripts : MonoBehaviour
         //移動処理+移動方向にキャラクターの正面を向かわせる(10/8 0:33更新)
         if (PlayableNum == 0)
         {
-            /*
-            Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Horizontal"));
-            //一定ベクトル量以上で移動方向に向く
-            if(direction.sqrMagnitude > 0.01f)
-            {
-                Vector3 forward =  Vector3.Slerp(transform.forward, direction, rotationSpeed * Time.deltaTime / Vector3.Angle(transform.forward, direction));
-
-                transform.LookAt(transform.position + forward);
-            }*/
-
-            
             
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
-                rb.velocity = new Vector3(PlayerSpeed,0,0);
+                rb.velocity += new Vector3(PlayerSpeed,0,0);
             }
 
             if (Input.GetAxisRaw("Horizontal") < 0)
             {
-                rb.velocity = new Vector3(-PlayerSpeed, 0, 0);
+                rb.velocity += new Vector3(-PlayerSpeed, 0, 0);
             }
 
             if (Input.GetAxisRaw("Vertical") > 0)
             {
-                rb.velocity = new Vector3(0, 0, PlayerSpeed);
+                rb.velocity += new Vector3(0, 0, PlayerSpeed);
             }
 
             if (Input.GetAxisRaw("Vertical") < 0)
             {
-                rb.velocity = new Vector3(0, 0, -PlayerSpeed);
+                rb.velocity += new Vector3(0, 0, -PlayerSpeed);
             }
 
             
@@ -270,7 +259,7 @@ public class PlayerScripts : MonoBehaviour
     //植木鉢の巨大化処理(10/7 18:21)
     private void UekibachiGiantMode()
     {
-        Uekibachi.transform.localScale = new Vector3(Uekibachi.transform.localScale.x * UekibachiGiantSize, Uekibachi.transform.localScale.y, Uekibachi.transform.localScale.z * UekibachiGiantSize);
+        Uekibachi.transform.localScale = new Vector3(Uekibachi.transform.localScale.x * UekibachiGiantSize, Uekibachi.transform.localScale.y * UekibachiGiantSize, Uekibachi.transform.localScale.z);
         /*
         Vector3 localScale = Uekibachi.transform.localScale;
         localScale.x *= UekibachiGiantSize;
