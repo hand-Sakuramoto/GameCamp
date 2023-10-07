@@ -19,7 +19,7 @@ public class TitileScene : MonoBehaviour
     {
         if(Input.anyKey){
            audioSource.PlayOneShot(sound);//SEを鳴らす
-           Invoke("ChangeScene", 0.25f);//シーンをまたぐとSEが破棄され、途切れるため、少し待つ対処をとる。
+           Invoke("ChangeScene", 0.50f);//シーンをまたぐとSEが破棄され、途切れるため、少し待つ対処をとる。
         }
     }
 
