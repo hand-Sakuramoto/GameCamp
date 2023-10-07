@@ -30,6 +30,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     {
         m_IsTimeOver = true;
         PlayerScripts.Instance.TimeOverEnd();
+        scoreUI.Instance.GameEnd();
         TimeUpUI.Instance.TimeUp();
     }
 }

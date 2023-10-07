@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class scoreUI : MonoBehaviour
+public class scoreUI : SingletonMonoBehaviour<scoreUI>
 {
+    protected override bool IsDontDestroyOnLoad {  get { return false; } }
+
     [SerializeField]
     TextMeshProUGUI text;
     [SerializeField]
@@ -26,6 +28,13 @@ public class scoreUI : MonoBehaviour
         {
             text.text = Score.ToString();
         }
+    }
+
+    public void GameEnd()
+    {
+        Score = Mathf.Min(Score, 9999);
+        PlayerPrefs.SetInt("score5", Score);
+        PlayerPrefs.Save();
     }
 
     //// Update is called once per frame
