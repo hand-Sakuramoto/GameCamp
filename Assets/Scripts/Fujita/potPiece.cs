@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class potPiece : MonoBehaviour
 {
+	// メンバ変数を宣言
+	[SerializeField] public Object thisObject;	// 自身のオブジェクト
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,16 +20,16 @@ public class potPiece : MonoBehaviour
     }
 
 	// 当たり判定
-	void OnCollisionEnter(Collision collision)
+	void OnTriggerEnter(Collider other)
 	{
-		if (collision.gameObject.tag == "Player")
+		if (other.gameObject.tag == "Player")
 		{ // プレイヤーの場合
 
 			// デバッグ表示
 			Debug.Log("植木鉢のかけらHit");
 
 			// 自身を破棄
-			Destroy(collision.gameObject);
+			Destroy(thisObject);
 		}
 	}
 }
