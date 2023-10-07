@@ -4,8 +4,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerScripts : MonoBehaviour
+public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 {
+    protected override bool IsDontDestroyOnLoad { get { return false; } }
+
+
     [Header("プレイヤー移動速度")] public float PlayerSpeed;
     [Header("プレイヤー移動速度の下限")] public float MinPlayerSpeed;
     [Header("プレイヤー移動速度初期値")]public float InitialPlayerSpeed;
@@ -47,7 +50,7 @@ public class PlayerScripts : MonoBehaviour
 
     private float AutoMintNumUpTimeNow;//現在のミントが自動で増えるまでの時間　(10/7 13:47)
 
-    private int PlayableNum = 0; //変数によるプレイヤー操作可能タイミング制限（0が操作可能、1が準備、ゲーム終了時など操作不能時）
+    private int PlayableNum = 1; //変数によるプレイヤー操作可能タイミング制限（0が操作可能、1が準備、ゲーム終了時など操作不能時）
 
     private bool isEiyouzaiBuff = false; //栄養剤バフ中かどうかの切り替え変数　(10/7 15:04)
 
@@ -55,7 +58,7 @@ public class PlayerScripts : MonoBehaviour
 
     //[Header("持っているミント数の仮のテキスト表示")] public TextMeshProUGUI MintTextBeta;
 
-    
+
 
 
     // Start is called before the first frame update
@@ -108,7 +111,22 @@ public class PlayerScripts : MonoBehaviour
                 rb.velocity += new Vector3(0, 0, -PlayerSpeed);
             }
 
+            //移動した方向に向きを変える
+            if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+            {
+                //前回からどこに進んだかをベクトルで取得(10/08 1:26)
+                Vector3 diff = transform.position - latestPos;
+                //前回のPositionの更新(10/08 1:26)
+                latestPos = transform.position;
+
+                //ベクトルの大きさ0.01以上で向きを変える処理へ(10/08 1:37)
+                if (diff.magnitude > 0.01f)
+                {
+                    transform.rotation = Quaternion.LookRotation(diff);//向き変更
+                }
+            }
             
+
 
 
             //移動キーニュートラルで止まる(10/7 13:06)
@@ -116,6 +134,8 @@ public class PlayerScripts : MonoBehaviour
             {
                 rb.velocity = Vector3.zero;
             }
+
+
 
 
             //移動ここまで
@@ -275,6 +295,11 @@ public class PlayerScripts : MonoBehaviour
     public void TimeOverEnd()
     {
         PlayableNum = 1;
+    }
+
+    public void GameStart()
+    {
+        PlayableNum = 0;
     }
 
 	// 当たり判定

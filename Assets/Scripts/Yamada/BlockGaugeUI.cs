@@ -22,9 +22,9 @@ public class BlockGaugeUI : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        SetBlockCount(CurrentBlockCount, MaxBlockCount);
-    }
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    SetBlockCount(CurrentBlockCount, MaxBlockCount);
+    //}
 }

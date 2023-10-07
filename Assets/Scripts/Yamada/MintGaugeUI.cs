@@ -15,7 +15,6 @@ public class MintGaugeUI : MonoBehaviour
     // Start is called before the first frame update
     public void SetMintCount(int mintCount,int maxMintCount)
     {
-
         MintGauge.value = mintCount / (float)maxMintCount;
     }
     void Start()
@@ -23,9 +22,9 @@ public class MintGaugeUI : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        SetMintCount(CurrentMintCount,MaxMintCount);
-    }
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    SetMintCount(CurrentMintCount,MaxMintCount);
+    //}
 }

@@ -17,10 +17,14 @@ public class ResultScene : MonoBehaviour
     public TMPro.TextMeshProUGUI ScoreText3;
     public TMPro.TextMeshProUGUI ScoreText4;
     public TMPro.TextMeshProUGUI ScoreText5;
+    public AudioClip sound;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
+      audioSource = GetComponent<AudioSource>();
+
       //過去スコアの読み出し
       int score1 = PlayerPrefs.GetInt("score1");
       int score2 = PlayerPrefs.GetInt("score2");
@@ -28,7 +32,7 @@ public class ResultScene : MonoBehaviour
       int score4 = PlayerPrefs.GetInt("score4");
       int score5 = PlayerPrefs.GetInt("score5");
 
-      int score = 0;
+      int score = PlayerPrefs.GetInt("ResultScore");
 
       //順位に並べる
       if (score1 < score)
@@ -64,32 +68,29 @@ public class ResultScene : MonoBehaviour
         };
 
 
-
-
       //新しい値のセット
-      //PlayerPrefs.SetInt("score1", 0);
-      //PlayerPrefs.SetInt("score2", 0);
-      //PlayerPrefs.SetInt("score3", 0);
-      //PlayerPrefs.SetInt("score4", 0);
-      //PlayerPrefs.SetInt("score5", 0);
-      //PlayerPrefs.Save();
+      PlayerPrefs.SetInt("score1", score1);
+      PlayerPrefs.SetInt("score2", score2);
+      PlayerPrefs.SetInt("score3", score3);
+      PlayerPrefs.SetInt("score4", score4);
+      PlayerPrefs.SetInt("score5", score5);
+      PlayerPrefs.Save();
 
 
       //ランキングの表示換えをここでする。
-      ScoreText1.text = "1位　" + score1.ToString();
-      ScoreText2.text = "2位　" + score2.ToString();
-      ScoreText3.text = "3位　" + score3.ToString();
-      ScoreText4.text = "4位　" + score4.ToString();
-      ScoreText5.text = "5位　" + score5.ToString();
+      ScoreText1.text =  score1.ToString();
+      ScoreText2.text =  score2.ToString();
+      ScoreText3.text =  score3.ToString();
+      ScoreText4.text =  score4.ToString();
+      ScoreText5.text =  score5.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
         if(Input.anyKey){
-
-           //audioSource.PlayOneShot(sound);//SEを鳴らす
-           Invoke("ChangeScene", 0.25f);//シーンをまたぐとSEが破棄され、途切れるため、少し待つ対処をとる。
+           audioSource.PlayOneShot(sound);//SEを鳴らす
+           Invoke("ChangeScene", 0.30f);//シーンをまたぐとSEが破棄され、途切れるため、少し待つ対処をとる。
         }
     }
 

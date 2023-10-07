@@ -25,7 +25,7 @@ public class TitileScene : MonoBehaviour
 
     void ChangeScene()
     {
-        SceneManager.LoadScene("Result");//メインシーンに遷移させる
+        SceneManager.LoadScene("Main");//メインシーンに遷移させる
     }
 
 }
