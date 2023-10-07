@@ -16,7 +16,12 @@ public class PlayerScripts : MonoBehaviour
 
     [Header("栄養剤バフの効果時間")] public float EiyouzaiBuffTime;
 
-    [Header("栄養剤バフ中のミントが増える時間の減少量")]public float AutoMintNumTimeBuff;
+    [Header("栄養剤バフの効果時間増加量")] public float EiyouzaiBuffUpCount;
+
+
+    [Header("栄養剤バフ中のミントが増える時間の減少量")]public float AutoMintNumTimeBuffCount;
+
+    [Header("ミントが自動で増えるまでの時間の初期値")]public float InitialAutoMintNumUpTime;
 
     [Header("持っている植木鉢の破片の数")] public float UekibatiNum;
     [Header("植木鉢強化までの破片数")] public float UekibatiPowerUpCountMax;
@@ -28,6 +33,8 @@ public class PlayerScripts : MonoBehaviour
 
     private int PlayableNum = 0; //変数によるプレイヤー操作可能タイミング制限（0が操作可能、1が準備、ゲーム終了時など操作不能時）
 
+    private bool isEiyouzaiBuff = false; //栄養剤バフ中かどうかの切り替え変数　(10/7 15:04)
+
     //[Header("持っているミント数の仮のテキスト表示")] public TextMeshProUGUI MintTextBeta;
 
 
@@ -37,6 +44,7 @@ public class PlayerScripts : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         ///ミントが自動で増えるまでの時間の初期化　(10/7 13:47)
+        InitialAutoMintNumUpTime = AutoMintNumUpTime;
         AutoMintNumUpTimeNow = AutoMintNumUpTime;
 
         //MintTextBeta.text = "MintNum:" + MintNum;
@@ -90,6 +98,24 @@ public class PlayerScripts : MonoBehaviour
                     //MintTextBeta.text = "MintNum:" + MintNum;
                 }
             }
+
+            //栄養剤バフ中の制限時間処理(10/7 15:22)
+            if (isEiyouzaiBuff)
+            {
+                if(EiyouzaiBuffTime > 0)
+                {
+                    EiyouzaiBuffTime--;
+
+                    //栄養剤バフの効果時間が０になったら効果制限時間リセット
+                    if(EiyouzaiBuffTime <= 0)
+                    {
+                        isEiyouzaiBuff = false;
+                        EiyouzaiBuffTime = 0;
+                        AutoMintNumUpTime = InitialAutoMintNumUpTime;
+
+                    }
+                }
+            }
         }
     }
     //植木鉢の破片を獲得した処理(10/7 13:45)
@@ -104,6 +130,19 @@ public class PlayerScripts : MonoBehaviour
             UekibatiNum = 0;
         }
     }
+    //栄養剤バフによるミント増殖スピードアップ処理(10/7 15:02)
+    public void AutoMintUpSpeedUp()
+    {
+        
+        EiyouzaiBuffTime += EiyouzaiBuffUpCount;
+
+        AutoMintNumUpTime -= AutoMintNumTimeBuffCount;
+
+        isEiyouzaiBuff = true;
+
+    }
+
+
 
     
 }
