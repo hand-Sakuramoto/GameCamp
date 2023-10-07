@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class nutrition : MonoBehaviour
 {
 	// メンバ変数を宣言
-	[SerializeField] public Object thisObject;	// 自身のオブジェクト
+	[SerializeField] public Object thisObject;   // 自身のオブジェクト
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	// Start is called before the first frame update
+	void Start()
+	{
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+
+	}
 
 	// 当たり判定
 	void OnTriggerEnter(Collider other)
@@ -31,5 +31,5 @@ public class NewBehaviourScript : MonoBehaviour
 			// 自身を破棄
 			Destroy(thisObject);
 		}
-	} 
+	}
 }
