@@ -41,7 +41,7 @@ public class MintObjectPool : ObjectPool<MintObject>
 
 		// •Ï”‚ğéŒ¾
 		Vector3 posPlayer = PS.GetComponent<PlayerScripts>().gameObject.transform.position;
-		Vector3 posRandom = new Vector3(Random.Range(-0.5f, 0.5f), 2.5f + (m_ActiveList.Count * 0.05f), Random.Range(-0.5f, 0.5f));
+		Vector3 posRandom = new Vector3(Random.Range(-0.5f, 0.5f), 2.5f + (m_ActiveList.Count * 0.025f), Random.Range(-0.5f, 0.5f));
 		Vector3 posMint = posPlayer + posRandom;
 
 		// ˆÊ’u‚Ìİ’è

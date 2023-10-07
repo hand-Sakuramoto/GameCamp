@@ -152,6 +152,7 @@ MonoBehaviour:
   PlayerSpeed: 5
   MinPlayerSpeed: 0.25
   InitialPlayerSpeed: 5
+  rotationSpeed: 360
   PlayerSpeedDownCorrection: 1
   MintNum: 0
   PlayerHP: 3
@@ -224,7 +225,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'uekibachi '
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6527000182402987079, guid: d39ef464c749f004cbedf8457491251b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
