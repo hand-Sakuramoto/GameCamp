@@ -10,9 +10,10 @@ public class MintObjectPool : ObjectPool<MintObject>
     [SerializeField]
     private int m_InitializeCount = 10;
 
-    int count;
+	[SerializeField]
+	public PlayerScripts PS;    // プレイヤースクリプト
 
-    private void Awake()
+	private void Awake()
     {
         Setup(m_InitializeCount);
     }
@@ -21,19 +22,42 @@ public class MintObjectPool : ObjectPool<MintObject>
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            MintObject mintObject = Get();
-            m_ActiveList.Add(mintObject);
-            mintObject.transform.position = new Vector2(count, 0);
-            count++;
+			// 生成
+			Create();
         }
 
         if (Input.GetKeyUp(KeyCode.Backspace))
         {
-            if (m_ActiveList.Count <= 0) { return; }
-
-            MintObject mintObject = m_ActiveList[0];
-            m_ActiveList.RemoveAt(0);
-            Release(mintObject);
+			// 破棄
+			Release();
         }
     }
+
+	// 生成
+	private void Create()
+	{
+		MintObject mintObject = Get();
+		m_ActiveList.Add(mintObject);
+
+		// 変数を宣言
+		Vector3 posPlayer = PS.GetComponent<PlayerScripts>().gameObject.transform.position;
+		Vector3 posRandom = new Vector3(Random.Range(-0.5f, 0.5f), 2.5f + (m_ActiveList.Count * 0.05f), Random.Range(-0.5f, 0.5f));
+		Vector3 posMint = posPlayer + posRandom;
+
+		// 位置の設定
+		mintObject.transform.position = posMint;
+
+		// 向きの設定
+		mintObject.transform.rotation = Quaternion.Euler(new Vector3(0.0f, Random.Range(0.0f, 360.0f), 270.0f));
+	}
+
+	// 破棄
+	public void Release()
+	{
+		if (m_ActiveList.Count <= 0) { return; }
+
+		MintObject mintObject = m_ActiveList[0];
+		m_ActiveList.RemoveAt(0);
+		Release(mintObject);
+	}
 }
