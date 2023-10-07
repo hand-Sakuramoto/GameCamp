@@ -72,7 +72,7 @@ public class PlayerScripts : MonoBehaviour
         localScale.x = InitialUekibachiSize;
         localScale.y = InitialUekibachiSize;
         localScale.z = InitialUekibachiSize;
-        transform.localScale = localScale;
+        Uekibachi.transform.localScale = localScale;
 
         
         //MintTextBeta.text = "MintNum:" + MintNum;
