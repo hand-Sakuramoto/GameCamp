@@ -14,6 +14,10 @@ public class PlayerScripts : MonoBehaviour
 
     [Header("自動ミントが増える量")] public float MintUpNum;
 
+    [Header("栄養剤バフの効果時間")] public float EiyouzaiBuffTime;
+
+    [Header("栄養剤バフ中のミントが増える時間の減少量")]public float AutoMintNumTimeBuff;
+
     [Header("持っている植木鉢の破片の数")] public float UekibatiNum;
     [Header("植木鉢強化までの破片数")] public float UekibatiPowerUpCountMax;
 
