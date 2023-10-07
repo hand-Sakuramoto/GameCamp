@@ -68,8 +68,13 @@ public class PlayerScripts : MonoBehaviour
         PlayerSpeed = InitialPlayerSpeed;
 
         //植木鉢の大きさの初期化
-        Uekibachi.transform.localScale = new Vector3(InitialUekibachiSize, InitialUekibachiSize, InitialUekibachiSize);
+        Vector3 localScale = Uekibachi.transform.localScale;
+        localScale.x = InitialUekibachiSize;
+        localScale.y = InitialUekibachiSize;
+        localScale.z = InitialUekibachiSize;
+        Uekibachi.transform.localScale = localScale;
 
+        
         //MintTextBeta.text = "MintNum:" + MintNum;
     }
 
@@ -248,7 +253,14 @@ public class PlayerScripts : MonoBehaviour
     //植木鉢の巨大化処理(10/7 18:21)
     private void UekibachiGiantMode()
     {
-        Uekibachi.transform.localScale = new Vector3(Uekibachi.transform.localScale.x*UekibachiGiantSize, Uekibachi.transform.localScale.y * UekibachiGiantSize, Uekibachi.transform.localScale.z * UekibachiGiantSize);
+        Uekibachi.transform.localScale = new Vector3(Uekibachi.transform.localScale.x * UekibachiGiantSize, Uekibachi.transform.localScale.y * UekibachiGiantSize, Uekibachi.transform.localScale.z * UekibachiGiantSize);
+        /*
+        Vector3 localScale = Uekibachi.transform.localScale;
+        localScale.x *= UekibachiGiantSize;
+        localScale.y *= UekibachiGiantSize;
+        localScale.z *= UekibachiGiantSize;
+        Uekibachi.transform.localScale = localScale;
+        */
 
         //マテリアル変化処理(10/7 18:30)
     }
