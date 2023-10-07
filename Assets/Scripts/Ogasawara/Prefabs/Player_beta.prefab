@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7309992924259349294}
   - component: {fileID: 3724811676634742030}
   - component: {fileID: 6805382265512565374}
+  - component: {fileID: 8764785264770383624}
   m_Layer: 0
   m_Name: Player_beta
   m_TagString: Player
@@ -169,6 +170,26 @@ MonoBehaviour:
   Uekibachi: {fileID: 1459765430432331031}
   InitialUekibachiSize: 100
   UekibachiGiantSize: 1.25
+  m_mintPool: {fileID: 8764785264770383624}
+--- !u!114 &8764785264770383624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4171671422020423042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2562999f6aa2ef48a9248f0e2e16da6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CanUseList: []
+  m_UsedList: []
+  m_Prefab: {fileID: 2817144756900690685, guid: 90b4e2281536dc34a82b19f42312e555, type: 3}
+  m_ActiveList: []
+  m_InitializeCount: 10
+  PS: {fileID: 6805382265512565374}
+  nCounterCreate: 0
 --- !u!1001 &4316846532330966534
 PrefabInstance:
   m_ObjectHideFlags: 0
