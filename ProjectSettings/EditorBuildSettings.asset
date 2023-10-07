@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Suzuki/Titile.unity
+    path: Assets/Scenes/Suzuki/Title.unity
     guid: 52364554e39e77b4da55beab5dc39e90
   - enabled: 1
     path: Assets/Scenes/Suzuki/Result.unity

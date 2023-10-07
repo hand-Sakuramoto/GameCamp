@@ -16,28 +16,36 @@ public class ResultScene : MonoBehaviour
     public TMPro.TextMeshProUGUI ScoreText4;
     public TMPro.TextMeshProUGUI ScoreText5;
 
+    private int score1 = 0;
+    private int score2 = 0;
+    private int score3 = 0;
+    private int score4 = 0;
+    private int score5 = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-      ScoreText1.text = "11";
-      ScoreText2.text = "11";
-      ScoreText3.text = "11";
-      ScoreText4.text = "11";
-      ScoreText5.text = "11";
+    
+      //ランキングの書き換えをここでする。
+      ScoreText1.text = "1位　" + score1.ToString();
+      ScoreText2.text = "2位　" + score2.ToString();
+      ScoreText3.text = "3位　" + score3.ToString();
+      ScoreText4.text = "4位　" + score4.ToString();
+      ScoreText5.text = "5位　" + score5.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        totalTime -= Time.deltaTime;
-        retime = (int)totalTime;
-        timeTexts.text = retime.ToString();
-        if(retime == 0)
-        {
-            SceneManager.LoadScene("resolt");
+        if(Input.anyKey){
+           //audioSource.PlayOneShot(sound);//SEを鳴らす
+           Invoke("ChangeScene", 0.25f);//シーンをまたぐとSEが破棄され、途切れるため、少し待つ対処をとる。
         }
-        */
+    }
+
+    void ChangeScene()
+    {
+        SceneManager.LoadScene("Title");//メインシーンに遷移させる
     }
 
 /*MainScene上に増設
@@ -48,5 +56,13 @@ using UnityEngine.SceneManagement;
     }
 
 */
-
+        /*
+        totalTime -= Time.deltaTime;
+        retime = (int)totalTime;
+        timeTexts.text = retime.ToString();
+        if(retime == 0)
+        {
+            SceneManager.LoadScene("resolt");
+        }
+        */
 }
