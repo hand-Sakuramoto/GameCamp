@@ -27,13 +27,12 @@ public class goal : MonoBehaviour
 
 			// デバッグ表示
 			Debug.Log("Hit");
-		}
-	}
 
-	// ミント納品数の加算
-	void AddNumMint(int nAddMint)
-	{
-		// 引数のミント加算量を加算
-		m_nNumMint += nAddMint;
+			// プレイヤーの所持ミント数を加算
+			m_nNumMint += (int)other.gameObject.GetComponent<PlayerScripts>().MintNum;
+
+			// 所持ミント数をリセット
+			other.gameObject.GetComponent<PlayerScripts>().MintReturn();
+		}
 	}
 }
