@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - goal
+  - potPiece
+  - nutrition
   layers:
   - Default
   - TransparentFX
