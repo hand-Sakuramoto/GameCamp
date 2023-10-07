@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class potPiece : MonoBehaviour
 {
-	// ƒƒ“ƒo•Ï”‚ğéŒ¾
-	[SerializeField] public Object thisObject;	// ©g‚ÌƒIƒuƒWƒFƒNƒg
-	[SerializeField] public PlayerScripts PS;	// ƒvƒŒƒCƒ„[ƒvƒŒƒnƒu
+	// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½Ïï¿½ï¿½ï¿½éŒ¾
+	[SerializeField] public Object thisObject;	// ï¿½ï¿½ï¿½gï¿½ÌƒIï¿½uï¿½Wï¿½Fï¿½Nï¿½g
+	[SerializeField] public PlayerScripts PS;	// ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½vï¿½ï¿½ï¿½nï¿½u
 
     // Start is called before the first frame update
     void Start()
@@ -20,19 +20,19 @@ public class potPiece : MonoBehaviour
         
     }
 
-	// “–‚½‚è”»’è
+	// ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == "Player")
-		{ // ƒvƒŒƒCƒ„[‚Ìê‡
+		{ // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Ìê‡
 
-			// ƒfƒoƒbƒO•\¦
-			Debug.Log("A–Ø”«‚Ì‚©‚¯‚çHit");
+			// ï¿½fï¿½oï¿½bï¿½Oï¿½\ï¿½ï¿½
+			Debug.Log("ï¿½Aï¿½Ø”ï¿½ï¿½Ì‚ï¿½ï¿½ï¿½ï¿½ï¿½Hit");
 
-			// ©g‚ğ”jŠü
+			// ï¿½ï¿½ï¿½gï¿½ï¿½jï¿½ï¿½
 			Destroy(thisObject);
 
-			// A–Ø”«‚Ì”j•Ğ‚ğŠl“¾
+			// ï¿½Aï¿½Ø”ï¿½ï¿½Ì”jï¿½Ğ‚ï¿½lï¿½ï¿½
 			PS.UekibatiCountUp();
 		}
 	}
