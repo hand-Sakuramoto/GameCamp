@@ -8,7 +8,8 @@ public class PlayerScripts : MonoBehaviour
 {
     [Header("プレイヤー移動速度")] public float PlayerSpeed;
     [Header("プレイヤー移動速度の下限")] public float MinPlayerSpeed;
-    [Header("プレイヤー移動速度初期値")]public float InitialPlayerSpeed; 
+    [Header("プレイヤー移動速度初期値")]public float InitialPlayerSpeed;
+    [Header("プレイヤー回転スピード")] public float rotationSpeed = 360;
 
 
     [Header("プレイヤースピード減少補正係数(小さければ小さいほど抑制力強)")] public float PlayerSpeedDownCorrection;
@@ -50,6 +51,8 @@ public class PlayerScripts : MonoBehaviour
 
     private bool isEiyouzaiBuff = false; //栄養剤バフ中かどうかの切り替え変数　(10/7 15:04)
 
+    private Vector3 latestPos; //前回のポジション(10/8 0:08)
+
     //[Header("持っているミント数の仮のテキスト表示")] public TextMeshProUGUI MintTextBeta;
 
     
@@ -81,9 +84,20 @@ public class PlayerScripts : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //移動処理(10/7 12:39)
+        //移動処理+移動方向にキャラクターの正面を向かわせる(10/8 0:33更新)
         if (PlayableNum == 0)
         {
+            /*
+            Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Horizontal"));
+            //一定ベクトル量以上で移動方向に向く
+            if(direction.sqrMagnitude > 0.01f)
+            {
+                Vector3 forward =  Vector3.Slerp(transform.forward, direction, rotationSpeed * Time.deltaTime / Vector3.Angle(transform.forward, direction));
+
+                transform.LookAt(transform.position + forward);
+            }*/
+
+            
             
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
@@ -104,6 +118,9 @@ public class PlayerScripts : MonoBehaviour
             {
                 rb.velocity = new Vector3(0, 0, -PlayerSpeed);
             }
+
+            
+
 
             //移動キーニュートラルで止まる(10/7 13:06)
             if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
@@ -253,7 +270,7 @@ public class PlayerScripts : MonoBehaviour
     //植木鉢の巨大化処理(10/7 18:21)
     private void UekibachiGiantMode()
     {
-        Uekibachi.transform.localScale = new Vector3(Uekibachi.transform.localScale.x * UekibachiGiantSize, Uekibachi.transform.localScale.y * UekibachiGiantSize, Uekibachi.transform.localScale.z * UekibachiGiantSize);
+        Uekibachi.transform.localScale = new Vector3(Uekibachi.transform.localScale.x * UekibachiGiantSize, Uekibachi.transform.localScale.y, Uekibachi.transform.localScale.z * UekibachiGiantSize);
         /*
         Vector3 localScale = Uekibachi.transform.localScale;
         localScale.x *= UekibachiGiantSize;
