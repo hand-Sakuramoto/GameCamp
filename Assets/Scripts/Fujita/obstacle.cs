@@ -15,15 +15,4 @@ public class obstacle : MonoBehaviour
     {
         
     }
-
-	// 当たり判定
-	void OnCollisionEnter(Collision collision)
-	{
-		if (collision.gameObject.tag == "Player")
-		{ // プレイヤーの場合
-
-			// デバッグ表示
-			Debug.Log("障害物Hit");
-		}
-	}
 }

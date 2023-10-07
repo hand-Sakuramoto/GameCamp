@@ -270,5 +270,21 @@ public class PlayerScripts : MonoBehaviour
     {
         PlayableNum = 1;
     }
-    
+
+	// 当たり判定
+	void OnCollisionEnter(Collision collision)
+	{
+		if (collision.gameObject.tag == "obstacle")
+		{ // プレイヤーの場合
+
+			// デバッグ表示
+			Debug.Log("障害物Hit");
+
+			// 障害物に当たった時のミント数、体力減少処理
+			HitDamage();
+
+			// デバッグ表示
+			Debug.Log(MintNum);
+		}
+	}
 }
