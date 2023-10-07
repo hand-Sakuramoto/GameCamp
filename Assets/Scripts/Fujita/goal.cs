@@ -5,17 +5,17 @@ using UnityEngine;
 public class goal : MonoBehaviour
 {
 	// メンバ変数を宣言
-	private int m_nNumMint = 0;	// ミントの総数
+	private int m_nNumMint = 0; // ミントの総数
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	// Start is called before the first frame update
+	void Start()
+	{
 
-    // Update is called once per frame
-    void Update()
-    {
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
 
 	}
 
@@ -28,5 +28,12 @@ public class goal : MonoBehaviour
 			// デバッグ表示
 			Debug.Log("Hit");
 		}
+	}
+
+	// ミント納品数の加算
+	void AddNumMint(int nAddMint)
+	{
+		// 引数のミント加算量を加算
+		m_nNumMint += nAddMint;
 	}
 }
