@@ -16,17 +16,32 @@ public class ResultScene : MonoBehaviour
     public TMPro.TextMeshProUGUI ScoreText4;
     public TMPro.TextMeshProUGUI ScoreText5;
 
-    private int score1 = 0;
-    private int score2 = 0;
-    private int score3 = 0;
-    private int score4 = 0;
-    private int score5 = 0;
-
     // Start is called before the first frame update
     void Start()
     {
-    
-      //ランキングの書き換えをここでする。
+      //過去スコアの読み出し
+      int score1 = PlayerPrefs.GetInt("score1");
+      int score2 = PlayerPrefs.GetInt("score2");
+      int score3 = PlayerPrefs.GetInt("score3");
+      int score4 = PlayerPrefs.GetInt("score4");
+      int score5 = PlayerPrefs.GetInt("score5");  
+
+      //順位に並べる
+      
+
+
+
+
+      //新しい値のセット
+      //PlayerPrefs.SetInt("score1", 0);
+      //PlayerPrefs.SetInt("score2", 0);
+      //PlayerPrefs.SetInt("score3", 0);
+      //PlayerPrefs.SetInt("score4", 0);
+      //PlayerPrefs.SetInt("score5", 0);
+      //PlayerPrefs.Save();
+
+
+      //ランキングの表示換えをここでする。
       ScoreText1.text = "1位　" + score1.ToString();
       ScoreText2.text = "2位　" + score2.ToString();
       ScoreText3.text = "3位　" + score3.ToString();
