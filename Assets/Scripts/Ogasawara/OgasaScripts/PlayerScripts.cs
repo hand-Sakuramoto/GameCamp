@@ -190,10 +190,12 @@ public class PlayerScripts : MonoBehaviour
     //障害物に当たった時のミント数、体力減少処理(10/7 15:41)
     public void HitDamage()
     {
-        //ミントを持っていたらミントを減少
+        //ダメージを受けた時、ミントを持っていたらミントを減少＋栄養剤バフ強制終了
         if(MintNum > 0 && PlayerHP > 0)
         {
             MintNum -= Damage;
+
+            EiyouzaiBuffTime = 0;
 
             if(MintNum <= 0)
             {
