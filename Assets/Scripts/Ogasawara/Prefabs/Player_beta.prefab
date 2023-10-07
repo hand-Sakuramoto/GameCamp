@@ -158,11 +158,11 @@ MonoBehaviour:
   MintNumMaxCount: 100
   AutoMintNumUpTime: 3
   MintUpNum: 0.025
-  EiyouzaiBuffTime: 1200
+  EiyouzaiBuffTime: 1500
   EiyouzaiBuffUpCount: 300
   AutoMintNumTimeBuffCount: 0
   InitialAutoMintNumUpTime: 5
-  UekibatiNum: 2
+  UekibatiNum: 4
   UekibatiPowerUpCountMax: 5
   Damage: 0
   Uekibachi: {fileID: 2693727396971859530}
@@ -178,15 +178,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 05575a654163de34ba92613ce3ca84bd, type: 3}
       propertyPath: m_LocalScale.x
-      value: 244.14062
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 05575a654163de34ba92613ce3ca84bd, type: 3}
       propertyPath: m_LocalScale.y
-      value: 244.14062
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 05575a654163de34ba92613ce3ca84bd, type: 3}
       propertyPath: m_LocalScale.z
-      value: 244.14062
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 05575a654163de34ba92613ce3ca84bd, type: 3}
       propertyPath: m_LocalPosition.x
