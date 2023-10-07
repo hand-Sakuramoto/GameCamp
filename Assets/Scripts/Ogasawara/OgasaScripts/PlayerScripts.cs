@@ -57,9 +57,10 @@ public class PlayerScripts : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PlayableNum == 0)
+        //移動処理(10/7 12:39)
+        if (PlayableNum == 0)
         {
-            //移動処理(10/7 12:39)
+            
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
                 rb.velocity = transform.right * PlayerSpeed;
@@ -89,48 +90,62 @@ public class PlayerScripts : MonoBehaviour
 
             //移動ここまで
 
-            //自動で持っているミント数が増える処理
-            if(AutoMintNumUpTimeNow > 0)
+            //ミント処理
+            MintFunction();
+
+
+        }
+    }
+
+    
+
+    //持っているミントの処理一覧関数(10:07 16:18)
+    private void MintFunction()
+    {
+        //自動で持っているミント数が増える処理
+        if (AutoMintNumUpTimeNow > 0)
+        {
+            AutoMintNumUpTimeNow--;
+            if (AutoMintNumUpTimeNow <= 0)
             {
-                AutoMintNumUpTimeNow--;
-                if(AutoMintNumUpTimeNow <= 0)
+                AutoMintNumUpTimeNow = AutoMintNumUpTime;
+                MintNum += MintUpNum;
+
+                //ミント数依存のスピードダウン処理へ
+                MintSpeedDown();
+
+                //持っているミント数の上限設定
+                if (MintNum >= MintNumMaxCount)
                 {
-                    AutoMintNumUpTimeNow = AutoMintNumUpTime;
-                    MintNum += MintUpNum;
-
-                    //ミント数依存のスピードダウン処理へ
-                    MintSpeedDown();
-
-                    //持っているミント数の上限設定
-                    if (MintNum >= MintNumMaxCount)
-                    {
-                        MintNum = MintNumMaxCount;
-                    }
-
-                    //ミント数の仮表示(10/7 13:16)
-                    //MintTextBeta.text = "MintNum:" + MintNum;
+                    MintNum = MintNumMaxCount;
                 }
+
+                //ミント数の仮表示(10/7 13:16)
+                //MintTextBeta.text = "MintNum:" + MintNum;
             }
+        }
 
-            //栄養剤バフ中の制限時間処理(10/7 15:22)
-            if (isEiyouzaiBuff)
+        //栄養剤バフ中の制限時間処理(10/7 15:22)
+        if (isEiyouzaiBuff)
+        {
+            if (EiyouzaiBuffTime > 0)
             {
-                if(EiyouzaiBuffTime > 0)
+                EiyouzaiBuffTime--;
+
+                //栄養剤バフの効果時間が０になったら効果制限時間リセット
+                if (EiyouzaiBuffTime <= 0)
                 {
-                    EiyouzaiBuffTime--;
+                    isEiyouzaiBuff = false;
+                    EiyouzaiBuffTime = 0;
+                    AutoMintNumUpTime = InitialAutoMintNumUpTime;
 
-                    //栄養剤バフの効果時間が０になったら効果制限時間リセット
-                    if(EiyouzaiBuffTime <= 0)
-                    {
-                        isEiyouzaiBuff = false;
-                        EiyouzaiBuffTime = 0;
-                        AutoMintNumUpTime = InitialAutoMintNumUpTime;
-
-                    }
                 }
             }
         }
     }
+
+
+
     //植木鉢の破片を獲得した処理(10/7 13:45)
     public void UekibatiCountUp()
     {
