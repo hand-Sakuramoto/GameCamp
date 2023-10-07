@@ -14,6 +14,10 @@ public class PlayerScripts : MonoBehaviour
 
     [Header("自動ミントが増える量")] public float MintUpNum;
 
+    [Header("栄養剤バフの効果時間")] public float EiyouzaiBuffTime;
+
+    [Header("栄養剤バフ中のミントが増える時間の減少量")]public float AutoMintNumTimeBuff;
+
     [Header("持っている植木鉢の破片の数")] public float UekibatiNum;
     [Header("植木鉢強化までの破片数")] public float UekibatiPowerUpCountMax;
 
@@ -24,7 +28,7 @@ public class PlayerScripts : MonoBehaviour
 
     private int PlayableNum = 0; //変数によるプレイヤー操作可能タイミング制限（0が操作可能、1が準備、ゲーム終了時など操作不能時）
 
-    [Header("持っているミント数の仮のテキスト表示")] public TextMeshProUGUI MintTextBeta;
+    //[Header("持っているミント数の仮のテキスト表示")] public TextMeshProUGUI MintTextBeta;
 
 
     // Start is called before the first frame update
@@ -35,7 +39,7 @@ public class PlayerScripts : MonoBehaviour
         ///ミントが自動で増えるまでの時間の初期化　(10/7 13:47)
         AutoMintNumUpTimeNow = AutoMintNumUpTime;
 
-        MintTextBeta.text = "MintNum:" + MintNum;
+        //MintTextBeta.text = "MintNum:" + MintNum;
     }
 
     // Update is called once per frame
@@ -83,7 +87,7 @@ public class PlayerScripts : MonoBehaviour
                     MintNum += MintUpNum;
 
                     //ミント数の仮表示(10/7 13:16)
-                    MintTextBeta.text = "MintNum:" + MintNum;
+                    //MintTextBeta.text = "MintNum:" + MintNum;
                 }
             }
         }
