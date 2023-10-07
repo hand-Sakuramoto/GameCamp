@@ -38,6 +38,8 @@ public class PlayerScripts : MonoBehaviour
 
     [Header("植木鉢")] public GameObject Uekibachi;
 
+    [Header("植木鉢の大きさの初期値")]public float InitialUekibachiSize;
+
     [Header("植木鉢のスケール巨大化係数")] public float UekibachiGiantSize;
 
     private Rigidbody rb; //RigidBody宣言　(10/7 12:22)
@@ -64,6 +66,9 @@ public class PlayerScripts : MonoBehaviour
 
         //移動速度の初期化
         PlayerSpeed = InitialPlayerSpeed;
+
+        //植木鉢の大きさの初期化
+        Uekibachi.transform.localScale = new Vector3(InitialUekibachiSize, InitialUekibachiSize, InitialUekibachiSize);
 
         //MintTextBeta.text = "MintNum:" + MintNum;
     }
