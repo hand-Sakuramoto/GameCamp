@@ -108,7 +108,22 @@ public class PlayerScripts : MonoBehaviour
                 rb.velocity += new Vector3(0, 0, -PlayerSpeed);
             }
 
+            //移動した方向に向きを変える
+            if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+            {
+                //前回からどこに進んだかをベクトルで取得(10/08 1:26)
+                Vector3 diff = transform.position - latestPos;
+                //前回のPositionの更新(10/08 1:26)
+                latestPos = transform.position;
+
+                //ベクトルの大きさ0.01以上で向きを変える処理へ(10/08 1:37)
+                if (diff.magnitude > 0.01f)
+                {
+                    transform.rotation = Quaternion.LookRotation(diff);//向き変更
+                }
+            }
             
+
 
 
             //移動キーニュートラルで止まる(10/7 13:06)
@@ -116,6 +131,8 @@ public class PlayerScripts : MonoBehaviour
             {
                 rb.velocity = Vector3.zero;
             }
+
+
 
 
             //移動ここまで
