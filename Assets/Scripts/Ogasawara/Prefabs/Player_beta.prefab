@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.68, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 156.25, y: 156.25, z: 156.25}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3326429936520959216}
@@ -158,11 +158,11 @@ MonoBehaviour:
   MintNumMaxCount: 100
   AutoMintNumUpTime: 3
   MintUpNum: 0.025
-  EiyouzaiBuffTime: 1800
+  EiyouzaiBuffTime: 2100
   EiyouzaiBuffUpCount: 300
   AutoMintNumTimeBuffCount: 0
   InitialAutoMintNumUpTime: 5
-  UekibatiNum: 1
+  UekibatiNum: 3
   UekibatiPowerUpCountMax: 5
   Damage: 0
   Uekibachi: {fileID: 2693727396971859530}
@@ -178,15 +178,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 05575a654163de34ba92613ce3ca84bd, type: 3}
       propertyPath: m_LocalScale.x
-      value: 100
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 05575a654163de34ba92613ce3ca84bd, type: 3}
       propertyPath: m_LocalScale.y
-      value: 100
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 05575a654163de34ba92613ce3ca84bd, type: 3}
       propertyPath: m_LocalScale.z
-      value: 100
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 05575a654163de34ba92613ce3ca84bd, type: 3}
       propertyPath: m_LocalPosition.x
