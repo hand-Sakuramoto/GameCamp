@@ -149,6 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSpeed: 5
+  MinPlayerSpeed: 0
+  PlayerSpeedDownCorrection: 0.0025
   MintNum: 0
   PlayerHP: 3
   MintNumMaxCount: 100

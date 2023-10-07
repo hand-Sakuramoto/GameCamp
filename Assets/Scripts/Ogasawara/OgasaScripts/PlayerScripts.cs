@@ -9,6 +9,8 @@ public class PlayerScripts : MonoBehaviour
     [Header("プレイヤー移動速度")] public float PlayerSpeed;
     [Header("プレイヤー移動速度の下限")] public float MinPlayerSpeed;
 
+    [Header("プレイヤースピード減少補正係数(小さければ小さいほど抑制力強)")] public float PlayerSpeedDownCorrection;
+
     [Header("持っているミントの数")] public float MintNum = 0;
     [Header("プレイヤーの体力")] public int PlayerHP;
 
@@ -149,9 +151,9 @@ public class PlayerScripts : MonoBehaviour
     //持っているミント数でのスピードダウン処理(10/7 16:03)
     private void MintSpeedDown()
     {
-        if(MintNum > 0)
+        if(MintNum > 0　&& MintNum < MintNumMaxCount)
         {
-            PlayerSpeed = PlayerSpeed - PlayerSpeed * MintNum / MintNumMaxCount;
+            PlayerSpeed = PlayerSpeed - PlayerSpeed * PlayerSpeedDownCorrection * MintNum / MintNumMaxCount;
             if (PlayerSpeed <= 0)
             {
                 PlayerSpeed = MinPlayerSpeed;
@@ -188,10 +190,12 @@ public class PlayerScripts : MonoBehaviour
     //障害物に当たった時のミント数、体力減少処理(10/7 15:41)
     public void HitDamage()
     {
-        //ミントを持っていたらミントを減少
+        //ダメージを受けた時、ミントを持っていたらミントを減少＋栄養剤バフ強制終了
         if(MintNum > 0 && PlayerHP > 0)
         {
             MintNum -= Damage;
+
+            EiyouzaiBuffTime = 0;
 
             if(MintNum <= 0)
             {
@@ -200,7 +204,7 @@ public class PlayerScripts : MonoBehaviour
 
             
         }
-
+        /*
         //ミントを持っていなかったらプレイヤーの体力減少
         else if(MintNum <= 0 && PlayerHP > 0)
         {
@@ -210,7 +214,7 @@ public class PlayerScripts : MonoBehaviour
                 PlayerHP = 0;
                 //プレイヤー一定時間行動不能処理
             }
-        }
+        }*/
     }
 
     
@@ -218,6 +222,12 @@ public class PlayerScripts : MonoBehaviour
     public void MintReturn()
     {
         MintNum = 0;
+    }
+
+    //タイムオーバー時の操作不能処理(10/7 17:43)
+    public void TimeOverEnd()
+    {
+        PlayableNum = 1;
     }
     
 }
