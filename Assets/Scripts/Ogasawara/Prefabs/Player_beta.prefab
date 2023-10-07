@@ -152,7 +152,7 @@ MonoBehaviour:
   MintNum: 0
   PlayerHP: 3
   MintNumMaxCount: 100
-  AutoMintNumUpTime: 180
+  AutoMintNumUpTime: 1800
   MintUpNum: 0.025
   EiyouzaiBuffTime: 0
   EiyouzaiBuffUpCount: 300

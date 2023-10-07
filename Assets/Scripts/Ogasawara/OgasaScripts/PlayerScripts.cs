@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class PlayerScripts : MonoBehaviour
 {
     [Header("プレイヤー移動速度")] public float PlayerSpeed;
+    [Header("プレイヤー移動速度の下限")] public float MinPlayerSpeed;
+
     [Header("持っているミントの数")] public float MintNum = 0;
     [Header("プレイヤーの体力")] public int PlayerHP;
 
@@ -63,22 +65,22 @@ public class PlayerScripts : MonoBehaviour
             
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
-                rb.velocity = transform.right * PlayerSpeed;
+                rb.velocity = new Vector3(PlayerSpeed,0,0);
             }
 
             if (Input.GetAxisRaw("Horizontal") < 0)
             {
-                rb.velocity = transform.right * -PlayerSpeed;
+                rb.velocity = new Vector3(-PlayerSpeed, 0, 0);
             }
 
             if (Input.GetAxisRaw("Vertical") > 0)
             {
-                rb.velocity = transform.forward * PlayerSpeed;
+                rb.velocity = new Vector3(0, 0, PlayerSpeed);
             }
 
             if (Input.GetAxisRaw("Vertical") < 0)
             {
-                rb.velocity = transform.forward * -PlayerSpeed;
+                rb.velocity = new Vector3(0, 0, -PlayerSpeed);
             }
 
             //移動キーニュートラルで止まる(10/7 13:06)
@@ -92,6 +94,9 @@ public class PlayerScripts : MonoBehaviour
 
             //ミント処理
             MintFunction();
+
+            //ミント数依存のスピードダウン処理へ
+            MintSpeedDown();
 
 
         }
@@ -110,9 +115,6 @@ public class PlayerScripts : MonoBehaviour
             {
                 AutoMintNumUpTimeNow = AutoMintNumUpTime;
                 MintNum += MintUpNum;
-
-                //ミント数依存のスピードダウン処理へ
-                MintSpeedDown();
 
                 //持っているミント数の上限設定
                 if (MintNum >= MintNumMaxCount)
@@ -144,6 +146,19 @@ public class PlayerScripts : MonoBehaviour
         }
     }
 
+    //持っているミント数でのスピードダウン処理(10/7 16:03)
+    private void MintSpeedDown()
+    {
+        if(MintNum > 0)
+        {
+            PlayerSpeed = PlayerSpeed - PlayerSpeed * MintNum / MintNumMaxCount;
+            if (PlayerSpeed <= 0)
+            {
+                PlayerSpeed = MinPlayerSpeed;
+            }
+        }
+        
+    }
 
 
     //植木鉢の破片を獲得した処理(10/7 13:45)
@@ -198,10 +213,11 @@ public class PlayerScripts : MonoBehaviour
         }
     }
 
-    //持っているミント数でのスピードダウン処理(10/7 16:03)
-    private void MintSpeedDown()
+    
+    //持っているミントを拠点へ返した時の処理(10/7 16:47)
+    public void MintReturn()
     {
-        PlayerSpeed = PlayerSpeed * MintNum / MintNumMaxCount ;
+        MintNum = 0;
     }
     
 }
