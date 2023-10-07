@@ -30,6 +30,8 @@ public class TestObjectPool : ObjectPool<TestObject>
 
         if(Input.GetKeyUp(KeyCode.Backspace))
         {
+            if(m_ActiveList.Count <= 0) { return; }
+
             TestObject testObject = m_ActiveList[0];
             m_ActiveList.RemoveAt(0);
             Release(testObject);
