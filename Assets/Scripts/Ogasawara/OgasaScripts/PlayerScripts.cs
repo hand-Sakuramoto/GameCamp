@@ -52,9 +52,9 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 	public float InitialAutoMintNumUpTime;
 
 	[Header("持っている植木鉢の破片の数")]
-	public float UekibatiNum;
+	public int UekibatiNum;
 	[Header("植木鉢強化までの破片数")]
-	public float UekibatiPowerUpCountMax;
+	public int UekibatiPowerUpCountMax;
 
 	[Header("障害物にヒット時のダメージ量")]
 	public int Damage;
@@ -102,9 +102,10 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 		localScale.z = InitialUekibachiSize;
 		Uekibachi.transform.localScale = localScale;
 
-
-		//MintTextBeta.text = "MintNum:" + MintNum;
-	}
+        BlockGaugeUI.Instance.SetBlockCount(UekibatiNum, UekibatiPowerUpCountMax);
+        MintGaugeUI.Instance.SetMintCount(MintNum, MintNumMaxCount);
+        //MintTextBeta.text = "MintNum:" + MintNum;
+    }
 
 	// Update is called once per frame
 	void Update()
@@ -176,34 +177,40 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 	//持っているミントの処理一覧関数(10:07 16:18)
 	private void MintFunction()
 	{
-		//自動で持っているミント数が増える処理
-		if (AutoMintNumUpTimeNow > 0)
+		// ミント数が最大の時は処理を行わない
+		if (MintNum != MintNumMaxCount)
 		{
-			AutoMintNumUpTimeNow -= Time.deltaTime;
-			if (AutoMintNumUpTimeNow <= 0)
+			//自動で持っているミント数が増える処理
+			if (AutoMintNumUpTimeNow > 0)
 			{
-				AutoMintNumUpTimeNow = AutoMintNumUpTime;
-				MintUpSum += MintUpNum;
-
-				if (MintUpSum > 1)
+				AutoMintNumUpTimeNow -= Time.deltaTime;
+				if (AutoMintNumUpTimeNow <= 0)
 				{
-					MintUpSum -= 1;
-					MintNum++;
-					m_mintPool.Create();
+					AutoMintNumUpTimeNow = AutoMintNumUpTime;
+					MintUpSum += MintUpNum;
+
+					if (MintUpSum > 1)
+					{
+						MintUpSum -= 1;
+						MintNum++;
+						m_mintPool.Create();
+
+						MintGaugeUI.Instance.SetMintCount(MintNum, MintNumMaxCount);
+					}
+
+					//ミント数依存のスピード変化処理へ
+					MintSpeedChange();
+
+					//持っているミント数の上限設定
+					if (MintNum >= MintNumMaxCount)
+					{
+						MintNum = MintNumMaxCount;
+					}
+
+					// Debug.Log(MintNum);
+					//ミント数の仮表示(10/7 13:16)
+					//MintTextBeta.text = "MintNum:" + MintNum;
 				}
-
-				//ミント数依存のスピード変化処理へ
-				MintSpeedChange();
-
-				//持っているミント数の上限設定
-				if (MintNum >= MintNumMaxCount)
-				{
-					MintNum = MintNumMaxCount;
-				}
-
-				// Debug.Log(MintNum);
-				//ミント数の仮表示(10/7 13:16)
-				//MintTextBeta.text = "MintNum:" + MintNum;
 			}
 		}
 
@@ -253,6 +260,8 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 			UekibachiGiantMode();
 			m_mintPool.nCounterCreate = 0;  // 生成高度を初期化
 		}
+
+		BlockGaugeUI.Instance.SetBlockCount(UekibatiNum, UekibatiPowerUpCountMax);
 	}
 	//栄養剤バフによるミント増殖スピードアップ処理(10/7 15:02)
 	public void AutoMintUpSpeedUp()
@@ -288,8 +297,8 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 				MintNum = 0;
 			}
 
-
-		}
+            MintGaugeUI.Instance.SetMintCount(MintNum, MintNumMaxCount);
+        }
 		/*
         //ミントを持っていなかったらプレイヤーの体力減少
         else if(MintNum <= 0 && PlayerHP > 0)
@@ -309,8 +318,10 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 	{
 		MintNum = 0;
 
-		// ミント全破棄
-		m_mintPool.ReleaseAll();
+        MintGaugeUI.Instance.SetMintCount(MintNum, MintNumMaxCount);
+
+        // ミント全破棄
+        m_mintPool.ReleaseAll();
 
 		//プレイヤー移動速度リセット
 		PlayerSpeed = InitialPlayerSpeed;

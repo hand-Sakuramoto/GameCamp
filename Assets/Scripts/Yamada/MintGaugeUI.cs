@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MintGaugeUI : MonoBehaviour
+public class MintGaugeUI : SingletonMonoBehaviour<MintGaugeUI>
 {
+    protected override bool IsDontDestroyOnLoad {  get { return false; } }
+
     [SerializeField]
     Slider MintGauge;
     [SerializeField]

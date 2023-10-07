@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BlockGaugeUI : MonoBehaviour
+public class BlockGaugeUI : SingletonMonoBehaviour<BlockGaugeUI>
 {
+    protected override bool IsDontDestroyOnLoad { get { return false; } }
 
     [SerializeField]
     Image BlockGauge;
