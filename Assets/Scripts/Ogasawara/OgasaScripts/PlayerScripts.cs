@@ -58,7 +58,7 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 
     //[Header("持っているミント数の仮のテキスト表示")] public TextMeshProUGUI MintTextBeta;
 
-
+	[SerializeField] public MintObjectPool m_mintPool;	// ミント生成オブジェクト
 
 
     // Start is called before the first frame update
@@ -222,7 +222,8 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
         {
             UekibatiNum = 0;
             UekibachiGiantMode();
-        }
+			m_mintPool.nCounterCreate = 0;	// 生成高度を初期化
+		}
     }
     //栄養剤バフによるミント増殖スピードアップ処理(10/7 15:02)
     public void AutoMintUpSpeedUp()
