@@ -32,7 +32,7 @@ public class ResultScene : MonoBehaviour
       int score4 = PlayerPrefs.GetInt("score4");
       int score5 = PlayerPrefs.GetInt("score5");
 
-      int score = 0;
+      int score = PlayerPrefs.GetInt("ResultScore");
 
       //順位に並べる
       if (score1 < score)
@@ -68,15 +68,13 @@ public class ResultScene : MonoBehaviour
         };
 
 
-
-
       //新しい値のセット
-      //PlayerPrefs.SetInt("score1", 0);
-      //PlayerPrefs.SetInt("score2", 0);
-      //PlayerPrefs.SetInt("score3", 0);
-      //PlayerPrefs.SetInt("score4", 0);
-      //PlayerPrefs.SetInt("score5", 0);
-      //PlayerPrefs.Save();
+      PlayerPrefs.SetInt("score1", score1);
+      PlayerPrefs.SetInt("score2", score2);
+      PlayerPrefs.SetInt("score3", score3);
+      PlayerPrefs.SetInt("score4", score4);
+      PlayerPrefs.SetInt("score5", score5);
+      PlayerPrefs.Save();
 
 
       //ランキングの表示換えをここでする。
