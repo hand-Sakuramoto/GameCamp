@@ -162,7 +162,7 @@ MonoBehaviour:
   EiyouzaiBuffUpCount: 300
   AutoMintNumTimeBuffCount: 0
   InitialAutoMintNumUpTime: 5
-  UekibatiNum: 3
+  UekibatiNum: 4
   UekibatiPowerUpCountMax: 5
   Damage: 0
   Uekibachi: {fileID: 2693727396971859530}
