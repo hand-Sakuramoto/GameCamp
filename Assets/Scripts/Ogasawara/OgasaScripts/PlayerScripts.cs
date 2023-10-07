@@ -9,6 +9,8 @@ public class PlayerScripts : MonoBehaviour
     [Header("プレイヤー移動速度")] public float PlayerSpeed;
     [Header("プレイヤー移動速度の下限")] public float MinPlayerSpeed;
 
+    [Header("プレイヤースピード減少補正係数(小さければ小さいほど抑制力強)")] public float PlayerSpeedDownCorrection;
+
     [Header("持っているミントの数")] public float MintNum = 0;
     [Header("プレイヤーの体力")] public int PlayerHP;
 
@@ -151,7 +153,7 @@ public class PlayerScripts : MonoBehaviour
     {
         if(MintNum > 0)
         {
-            PlayerSpeed = PlayerSpeed - PlayerSpeed * MintNum / MintNumMaxCount;
+            PlayerSpeed = PlayerSpeed - PlayerSpeed * PlayerSpeedDownCorrection * MintNum / MintNumMaxCount;
             if (PlayerSpeed <= 0)
             {
                 PlayerSpeed = MinPlayerSpeed;
