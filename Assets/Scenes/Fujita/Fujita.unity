@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24ec1fe3dda63f4baeb66cf43541232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fAddRotation: 0.15
+  fRotationSpeed: 0
 --- !u!1001 &184853317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24ec1fe3dda63f4baeb66cf43541232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fAddRotation: 0.15
+  fRotationSpeed: 0
 --- !u!1 &203889821 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2816607704885776741, guid: 4833e6b845ff2c346821bccf55027e2a, type: 3}
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24ec1fe3dda63f4baeb66cf43541232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fAddRotation: 0.15
+  fRotationSpeed: 0
 --- !u!1001 &487676677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24ec1fe3dda63f4baeb66cf43541232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fAddRotation: 0.15
+  fRotationSpeed: 0
 --- !u!1 &556895235
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24ec1fe3dda63f4baeb66cf43541232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fAddRotation: 0.15
+  fRotationSpeed: 0
 --- !u!1 &771295403 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5907576002773761921, guid: b66c2290d1431fd4cb947814e2ab4c04, type: 3}
@@ -569,7 +569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24ec1fe3dda63f4baeb66cf43541232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fAddRotation: 0.15
+  fRotationSpeed: 0
 --- !u!1001 &857018781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -651,7 +651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24ec1fe3dda63f4baeb66cf43541232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fAddRotation: 0.15
+  fRotationSpeed: 0
 --- !u!1001 &857856175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -733,7 +733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24ec1fe3dda63f4baeb66cf43541232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fAddRotation: 0.15
+  fRotationSpeed: 0
 --- !u!1001 &868820458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -872,7 +872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24ec1fe3dda63f4baeb66cf43541232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fAddRotation: 0.15
+  fRotationSpeed: 0
 --- !u!1001 &1148150024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -954,7 +954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24ec1fe3dda63f4baeb66cf43541232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fAddRotation: 0.15
+  fRotationSpeed: 0
 --- !u!1001 &1166205231
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1036,7 +1036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24ec1fe3dda63f4baeb66cf43541232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fAddRotation: 0.15
+  fRotationSpeed: 0
 --- !u!1001 &1224781214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1118,7 +1118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24ec1fe3dda63f4baeb66cf43541232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fAddRotation: 0.15
+  fRotationSpeed: 0
 --- !u!1001 &1354602307
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1200,7 +1200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24ec1fe3dda63f4baeb66cf43541232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fAddRotation: 0.15
+  fRotationSpeed: 0
 --- !u!1001 &1404551724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1282,7 +1282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24ec1fe3dda63f4baeb66cf43541232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fAddRotation: 0.15
+  fRotationSpeed: 0
 --- !u!1 &1430631285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,7 +1458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24ec1fe3dda63f4baeb66cf43541232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fAddRotation: 0.15
+  fRotationSpeed: 0
 --- !u!1001 &1635305014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1540,7 +1540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24ec1fe3dda63f4baeb66cf43541232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fAddRotation: 0.15
+  fRotationSpeed: 0
 --- !u!1001 &1793695491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1622,7 +1622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24ec1fe3dda63f4baeb66cf43541232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fAddRotation: 0.15
+  fRotationSpeed: 0
 --- !u!1 &1874735754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1773,7 +1773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24ec1fe3dda63f4baeb66cf43541232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fAddRotation: 0.15
+  fRotationSpeed: 0
 --- !u!1001 &1952048922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1855,7 +1855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24ec1fe3dda63f4baeb66cf43541232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fAddRotation: 0.15
+  fRotationSpeed: 0
 --- !u!1 &1971692001
 GameObject:
   m_ObjectHideFlags: 0
