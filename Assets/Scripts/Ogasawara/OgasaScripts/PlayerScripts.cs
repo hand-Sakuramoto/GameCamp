@@ -223,5 +223,11 @@ public class PlayerScripts : MonoBehaviour
     {
         MintNum = 0;
     }
+
+    //タイムオーバー時の操作不能処理(10/7 17:43)
+    public void TimeOverEnd()
+    {
+        PlayableNum = 1;
+    }
     
 }
