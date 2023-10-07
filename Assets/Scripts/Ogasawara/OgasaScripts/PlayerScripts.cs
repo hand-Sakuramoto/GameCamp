@@ -202,7 +202,7 @@ public class PlayerScripts : MonoBehaviour
 
             
         }
-
+        /*
         //ミントを持っていなかったらプレイヤーの体力減少
         else if(MintNum <= 0 && PlayerHP > 0)
         {
@@ -212,7 +212,7 @@ public class PlayerScripts : MonoBehaviour
                 PlayerHP = 0;
                 //プレイヤー一定時間行動不能処理
             }
-        }
+        }*/
     }
 
     
