@@ -22,26 +22,11 @@ public class MintObjectPool : ObjectPool<MintObject>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-			// ¶¬
-			Create();
-        }
 
-        if (Input.GetKeyUp(KeyCode.Backspace))
-        {
-			// ”jŠü
-			Release();
-        }
-
-		if (Input.GetKeyUp(KeyCode.F1))
-		{
-			nCounterCreate = 0;
-		}
 	}
 
 	// ¶¬
-	private void Create()
+	public void Create()
 	{
 		MintObject mintObject = Get();
 		m_ActiveList.Add(mintObject);
@@ -86,5 +71,22 @@ public class MintObjectPool : ObjectPool<MintObject>
 
 		// ¶¬”‚ğŒ¸Z
 		nCounterCreate--;
+	}
+
+	// ‘S”jŠü
+	public void ReleaseAll()
+	{
+		// ¶¬”‚ğ‰Šú‰»
+		nCounterCreate = 0;
+
+		// Š”‚ÌŠm”F
+		while (m_ActiveList.Count > 0)
+		{ // c‚Á‚Ä‚¢‚éê‡ŒJ‚è•Ô‚·
+
+			// ”jŠü
+			MintObject mintObject = m_ActiveList[0];
+			m_ActiveList.RemoveAt(0);
+			Release(mintObject);
+		}
 	}
 }
