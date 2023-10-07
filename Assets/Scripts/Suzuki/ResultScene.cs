@@ -72,7 +72,7 @@ public class ResultScene : MonoBehaviour
       PlayerPrefs.SetInt("score1", score1);
       PlayerPrefs.SetInt("score2", score2);
       PlayerPrefs.SetInt("score3", score3);
-      PlayerPrefs.SetInt("score4", socre4);
+      PlayerPrefs.SetInt("score4", score4);
       PlayerPrefs.SetInt("score5", score5);
       PlayerPrefs.Save();
 
