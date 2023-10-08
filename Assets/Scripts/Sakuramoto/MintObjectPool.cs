@@ -46,7 +46,7 @@ public class MintObjectPool : ObjectPool<MintObject>
 		float fRandX = Random.Range(-0.5f * fScale, 0.5f * fScale);	// X���W�����_��
 		float fRandZ = Random.Range(-0.5f * fScale, 0.5f * fScale);	// Z���W�����_��
 		Vector3 posPlayer = PS.GetComponent<PlayerScripts>().gameObject.transform.position;			// �v���C���[�ʒu
-		Vector3 posRandom = new Vector3(fRandX, 2.2f + (nCounterCreate * 0.025f / fScale), fRandZ);	// �����_�����Z�ʒu
+		Vector3 posRandom = new Vector3(fRandX, 2.4f + (nCounterCreate * 0.025f / fScale), fRandZ);	// �����_�����Z�ʒu
 		Vector3 posMint = posPlayer + posRandom;	// �\���ʒu
 
 		//SE��炷
@@ -56,7 +56,7 @@ public class MintObjectPool : ObjectPool<MintObject>
 		mintObject.transform.position = posMint;
 
 		// �����̐ݒ�
-		mintObject.transform.rotation = Quaternion.Euler(new Vector3(0.0f, Random.Range(0.0f, 360.0f), 270.0f));
+		mintObject.transform.rotation = Quaternion.Euler(new Vector3(90.0f, Random.Range(0.0f, 360.0f), 0.0f));
 
 		// ����������Z
 		nCounterCreate++;
