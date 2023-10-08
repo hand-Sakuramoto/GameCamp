@@ -188,9 +188,10 @@ MonoBehaviour:
   m_UsedList: []
   m_Prefab: {fileID: 2817144756900690685, guid: 90b4e2281536dc34a82b19f42312e555, type: 3}
   m_ActiveList: []
-  m_InitializeCount: 10
+  m_InitializeCount: 1000
   PS: {fileID: 6805382265512565374}
   nCounterCreate: 0
+  sound: {fileID: 0}
 --- !u!1001 &4316846532330966534
 PrefabInstance:
   m_ObjectHideFlags: 0
