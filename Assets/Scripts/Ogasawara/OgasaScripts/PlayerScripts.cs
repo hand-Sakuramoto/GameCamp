@@ -128,22 +128,22 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 		if (PlayableNum == 0)
 		{
 
-			if (Input.GetAxisRaw("Horizontal") > 0)
+			if (Input.GetAxisRaw("Horizontal") > 0.8f)
 			{
 				rb.velocity += new Vector3(PlayerSpeed, 0, 0);
 			}
 
-			if (Input.GetAxisRaw("Horizontal") < 0)
+			if (Input.GetAxisRaw("Horizontal") < -0.8f)
 			{
 				rb.velocity += new Vector3(-PlayerSpeed, 0, 0);
 			}
 
-			if (Input.GetAxisRaw("Vertical") > 0)
+			if (Input.GetAxisRaw("Vertical") > 0.8f)
 			{
 				rb.velocity += new Vector3(0, 0, PlayerSpeed);
 			}
 
-			if (Input.GetAxisRaw("Vertical") < 0)
+			if (Input.GetAxisRaw("Vertical") < -0.8f)
 			{
 				rb.velocity += new Vector3(0, 0, -PlayerSpeed);
 			}
@@ -154,10 +154,13 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 			}
 
 			//移動した方向に向きを変える
-			if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+			if (Input.GetAxisRaw("Horizontal") <= 0.8f && Input.GetAxisRaw("Horizontal") >= -0.8f || Input.GetAxisRaw("Vertical") <= 0.8f && Input.GetAxisRaw("Vertical") >= -0.8f)
 			{
 				//前回からどこに進んだかをベクトルで取得(10/08 1:26)
 				Vector3 diff = transform.position - latestPos;
+
+				diff *= -1;
+
 				//前回のPositionの更新(10/08 1:26)
 				latestPos = transform.position;
 
