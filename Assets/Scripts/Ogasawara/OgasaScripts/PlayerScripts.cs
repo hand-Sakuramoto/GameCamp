@@ -40,6 +40,8 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 	[Header("ミントが自動で増えるまでの時間")]
 	public float AutoMintNumUpTime;
 
+	private float MinAutoMintNumUpTime = 0.025f;
+
 	[Header("自動でミントが増える量")]
 	public float MintUpNum;
 
@@ -126,22 +128,22 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 		if (PlayableNum == 0)
 		{
 
-			if (Input.GetAxisRaw("Horizontal") > 0)
+			if (Input.GetAxisRaw("Horizontal") > 0.8f)
 			{
 				rb.velocity += new Vector3(PlayerSpeed, 0, 0);
 			}
 
-			if (Input.GetAxisRaw("Horizontal") < 0)
+			if (Input.GetAxisRaw("Horizontal") < -0.8f)
 			{
 				rb.velocity += new Vector3(-PlayerSpeed, 0, 0);
 			}
 
-			if (Input.GetAxisRaw("Vertical") > 0)
+			if (Input.GetAxisRaw("Vertical") > 0.8f)
 			{
 				rb.velocity += new Vector3(0, 0, PlayerSpeed);
 			}
 
-			if (Input.GetAxisRaw("Vertical") < 0)
+			if (Input.GetAxisRaw("Vertical") < -0.8f)
 			{
 				rb.velocity += new Vector3(0, 0, -PlayerSpeed);
 			}
@@ -152,10 +154,13 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 			}
 
 			//移動した方向に向きを変える
-			if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+			if (Input.GetAxisRaw("Horizontal") <= 0.8f && Input.GetAxisRaw("Horizontal") >= -0.8f || Input.GetAxisRaw("Vertical") <= 0.8f && Input.GetAxisRaw("Vertical") >= -0.8f)
 			{
 				//前回からどこに進んだかをベクトルで取得(10/08 1:26)
 				Vector3 diff = transform.position - latestPos;
+
+				diff *= -1;
+
 				//前回のPositionの更新(10/08 1:26)
 				latestPos = transform.position;
 
@@ -183,6 +188,8 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 			//ミント処理
 			MintFunction();
 
+
+			Debug.Log(AutoMintNumUpTime);
 
 
 
@@ -297,6 +304,11 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 
 		AutoMintNumUpTime -= AutoMintNumTimeBuffCount;
 
+		if(AutoMintNumUpTime <= MinAutoMintNumUpTime)
+		{
+			AutoMintNumUpTime = MinAutoMintNumUpTime;
+		}
+
 		isEiyouzaiBuff = true;
 
 	}
@@ -357,7 +369,7 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 	private void UekibachiGiantMode()
 	{
 		//植木鉢の巨大化レベルが3未満の時、巨大化処理(10/08 9:02)
-		if (UekibachiLevel < 3)
+		if (UekibachiLevel < 5)
 		{
 			UekibachiLevel += 1;
             Uekibachi.transform.localScale = new Vector3(Uekibachi.transform.localScale.x * UekibachiGiantSize, Uekibachi.transform.localScale.y * UekibachiGiantSize, Uekibachi.transform.localScale.z);
