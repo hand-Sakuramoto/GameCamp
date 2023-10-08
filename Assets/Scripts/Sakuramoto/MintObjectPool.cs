@@ -11,9 +11,9 @@ public class MintObjectPool : ObjectPool<MintObject>
     private int m_InitializeCount = 500;
 
 	[SerializeField]
-	public PlayerScripts PS;    // ƒvƒŒƒCƒ„[ƒXƒNƒŠƒvƒg
+	public PlayerScripts PS;    // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Xï¿½Nï¿½ï¿½ï¿½vï¿½g
 
-	public int nCounterCreate = 0;	// ¶¬”
+	public int nCounterCreate = 0;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     public AudioClip sound;
     private AudioSource audioSource;
@@ -29,68 +29,68 @@ public class MintObjectPool : ObjectPool<MintObject>
 
 	}
 
-	// ¶¬
+	// ï¿½ï¿½ï¿½ï¿½
 	public void Create()
 	{
 		MintObject mintObject = Get();
 		m_ActiveList.Add(mintObject);
 
-		// •Ï”‚ğéŒ¾
+		// ï¿½Ïï¿½ï¿½ï¿½éŒ¾
 		float fScale = (PS.GetComponent<PlayerScripts>().Uekibachi.transform.localScale.x - PS.GetComponent<PlayerScripts>().InitialUekibachiSize) * 0.025f;
 		if (fScale < 1.0f)
 		{
-			// Šg‘å—¦‚ğ•â³
+			// ï¿½gï¿½å—¦ï¿½ï¿½â³
 			fScale = 1.0f;
 		}
 
-		float fRandX = Random.Range(-0.5f * fScale, 0.5f * fScale);	// XÀ•Wƒ‰ƒ“ƒ_ƒ€
-		float fRandZ = Random.Range(-0.5f * fScale, 0.5f * fScale);	// ZÀ•Wƒ‰ƒ“ƒ_ƒ€
-		Vector3 posPlayer = PS.GetComponent<PlayerScripts>().gameObject.transform.position;			// ƒvƒŒƒCƒ„[ˆÊ’u
-		Vector3 posRandom = new Vector3(fRandX, 2.2f + (nCounterCreate * 0.025f / fScale), fRandZ);	// ƒ‰ƒ“ƒ_ƒ€‰ÁZˆÊ’u
-		Vector3 posMint = posPlayer + posRandom;	// •\¦ˆÊ’u
+		float fRandX = Random.Range(-0.5f * fScale, 0.5f * fScale);	// Xï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½
+		float fRandZ = Random.Range(-0.5f * fScale, 0.5f * fScale);	// Zï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½
+		Vector3 posPlayer = PS.GetComponent<PlayerScripts>().gameObject.transform.position;			// ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Ê’u
+		Vector3 posRandom = new Vector3(fRandX, 2.2f + (nCounterCreate * 0.025f / fScale), fRandZ);	// ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½Ê’u
+		Vector3 posMint = posPlayer + posRandom;	// ï¿½\ï¿½ï¿½ï¿½Ê’u
 
-		//SE‚ğ–Â‚ç‚·
+		//SEï¿½ï¿½Â‚ç‚·
 		audioSource.PlayOneShot(sound);
 
-		// ˆÊ’u‚Ìİ’è
+		// ï¿½Ê’uï¿½Ìİ’ï¿½
 		mintObject.transform.position = posMint;
 
-		// Œü‚«‚Ìİ’è
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Ìİ’ï¿½
 		mintObject.transform.rotation = Quaternion.Euler(new Vector3(0.0f, Random.Range(0.0f, 360.0f), 270.0f));
 
-		// ¶¬”‚ğ‰ÁZ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Z
 		nCounterCreate++;
 	}
 
-	// ”jŠü
+	// ï¿½jï¿½ï¿½
 	public void Release()
 	{
-		// •Ï”‚ğéŒ¾
-		int nReleaseID = m_ActiveList.Count - 1;	// íœƒCƒ“ƒfƒbƒNƒX
+		// ï¿½Ïï¿½ï¿½ï¿½éŒ¾
+		int nReleaseID = m_ActiveList.Count - 1;	// ï¿½íœï¿½Cï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½X
 
-		// Š”‚ÌŠm”F
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌŠmï¿½F
 		if (m_ActiveList.Count <= 0) { return; }
 
-		// ”jŠü
+		// ï¿½jï¿½ï¿½
 		MintObject mintObject = m_ActiveList[nReleaseID];
 		m_ActiveList.RemoveAt(nReleaseID);
 		Release(mintObject);
 
-		// ¶¬”‚ğŒ¸Z
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Z
 		nCounterCreate--;
 	}
 
-	// ‘S”jŠü
+	// ï¿½Sï¿½jï¿½ï¿½
 	public void ReleaseAll()
 	{
-		// ¶¬”‚ğ‰Šú‰»
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		nCounterCreate = 0;
 
-		// Š”‚ÌŠm”F
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌŠmï¿½F
 		while (m_ActiveList.Count > 0)
-		{ // c‚Á‚Ä‚¢‚éê‡ŒJ‚è•Ô‚·
+		{ // ï¿½cï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ê‡ï¿½Jï¿½ï¿½Ô‚ï¿½
 
-			// ”jŠü
+			// ï¿½jï¿½ï¿½
 			MintObject mintObject = m_ActiveList[0];
 			m_ActiveList.RemoveAt(0);
 			Release(mintObject);
