@@ -30,6 +30,8 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 	[Header("ミント最大保持数")]
 	public int MintNumMaxCount = 100;
 
+	[Header("ミント最大保持数の増加量")] public int MintNumMaxCountUpNum;
+
 	[Header("ミントが自動で増えるまでの時間")]
 	public float AutoMintNumUpTime;
 
@@ -78,6 +80,8 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 
 	private Vector3 latestPos; //前回のポジション(10/8 0:08)
 
+	private int UekibachiLevel = 1; //植木鉢の巨大化の成長段階用変数→3が最大(10/08 9:01)
+
 	//[Header("持っているミント数の仮のテキスト表示")] public TextMeshProUGUI MintTextBeta;
 
 	[SerializeField] public MintObjectPool m_mintPool;	// ミント生成オブジェクト
@@ -94,6 +98,9 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 
 		//移動速度の初期化
 		PlayerSpeed = InitialPlayerSpeed;
+
+		//植木鉢の巨大化レベルの初期化(10/08 9:11)
+		UekibachiLevel = 1;
 
 		//植木鉢の大きさの初期化
 		Vector3 localScale = Uekibachi.transform.localScale;
@@ -330,17 +337,24 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 	//植木鉢の巨大化処理(10/7 18:21)
 	private void UekibachiGiantMode()
 	{
-		Uekibachi.transform.localScale = new Vector3(Uekibachi.transform.localScale.x * UekibachiGiantSize, Uekibachi.transform.localScale.y * UekibachiGiantSize, Uekibachi.transform.localScale.z);
-		/*
-        Vector3 localScale = Uekibachi.transform.localScale;
-        localScale.x *= UekibachiGiantSize;
-        localScale.y *= UekibachiGiantSize;
-        localScale.z *= UekibachiGiantSize;
-        Uekibachi.transform.localScale = localScale;
-        */
+		//植木鉢の巨大化レベルが3未満の時、巨大化処理(10/08 9:02)
+		if (UekibachiLevel < 3)
+		{
+			UekibachiLevel += 1;
+            Uekibachi.transform.localScale = new Vector3(Uekibachi.transform.localScale.x * UekibachiGiantSize, Uekibachi.transform.localScale.y * UekibachiGiantSize, Uekibachi.transform.localScale.z);
 
-		//マテリアル変化処理(10/7 18:30)
-	}
+        }
+
+        /*
+		Vector3 localScale = Uekibachi.transform.localScale;
+		localScale.x *= UekibachiGiantSize;
+		localScale.y *= UekibachiGiantSize;
+		localScale.z *= UekibachiGiantSize;
+		Uekibachi.transform.localScale = localScale;
+		*/
+
+        //マテリアル変化処理(10/7 18:30)
+    }
 
 	//タイムオーバー時の操作不能処理(10/7 17:43)
 	public void TimeOverEnd()
