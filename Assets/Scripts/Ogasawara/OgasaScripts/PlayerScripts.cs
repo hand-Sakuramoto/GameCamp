@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,10 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 
 	[Header("プレイヤー移動速度")]
 	public float PlayerSpeed;
+	[Header("プレイヤーの最大速度")]
+	public float PlayerMaxSpeed;
+
+	private float CurrerntPlayerMaxSpeed;
 	[Header("プレイヤー移動速度の下限")]
 	public float MinPlayerSpeed;
 	[Header("プレイヤー移動速度初期値")]
@@ -19,8 +24,8 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 	public float rotationSpeed = 360;
 
 
-	[Header("プレイヤースピード減少補正係数(小さければ小さいほど抑制力強)")]
-	public float PlayerSpeedDownCorrection;
+	//[Header("プレイヤースピード減少補正係数(小さければ小さいほど抑制力強)")]
+	//public float PlayerSpeedDownCorrection;
 
 	[Header("持っているミントの数")]
 	public int MintNum = 0;
@@ -141,6 +146,11 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 				rb.velocity += new Vector3(0, 0, -PlayerSpeed);
 			}
 
+			if (rb.velocity.magnitude > CurrerntPlayerMaxSpeed)
+			{
+				rb.velocity = rb.velocity / rb.velocity.magnitude * CurrerntPlayerMaxSpeed;
+			}
+
 			//移動した方向に向きを変える
 			if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
 			{
@@ -243,13 +253,22 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 	//持っているミント数でのスピード変化処理(10/7 16:03)
 	private void MintSpeedChange()
 	{
+		/*
 		if (MintNum > 0 && MintNum < MintNumMaxCount)
 		{
 			PlayerSpeed = PlayerSpeed - PlayerSpeed * PlayerSpeedDownCorrection * MintNum / (float)MintNumMaxCount;
-			if (PlayerSpeed <= 0)
+
+			if (PlayerSpeed <= MinPlayerSpeed)
 			{
 				PlayerSpeed = MinPlayerSpeed;
 			}
+		}*/
+
+		CurrerntPlayerMaxSpeed = PlayerMaxSpeed * (1 - (MintNum / (float)MintNumMaxCount));
+
+		if(CurrerntPlayerMaxSpeed < MinPlayerSpeed)
+		{
+			CurrerntPlayerMaxSpeed = MinPlayerSpeed;
 		}
 
 	}
@@ -342,7 +361,7 @@ public class PlayerScripts : SingletonMonoBehaviour<PlayerScripts>
 		{
 			UekibachiLevel += 1;
             Uekibachi.transform.localScale = new Vector3(Uekibachi.transform.localScale.x * UekibachiGiantSize, Uekibachi.transform.localScale.y * UekibachiGiantSize, Uekibachi.transform.localScale.z);
-
+			MintNumMaxCount += MintNumMaxCountUpNum;
         }
 
         /*

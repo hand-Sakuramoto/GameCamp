@@ -136,7 +136,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 2
 --- !u!114 &6805382265512565374
 MonoBehaviour:
@@ -150,23 +150,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e79d9e069107364091fc0fe87bf042a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerSpeed: 1
-  MinPlayerSpeed: 0.0025
-  InitialPlayerSpeed: 1
+  PlayerSpeed: 0.5
+  PlayerMaxSpeed: 22.5
+  MinPlayerSpeed: 5
+  InitialPlayerSpeed: 0.5
   rotationSpeed: 360
-  PlayerSpeedDownCorrection: 1
   MintNum: 0
   PlayerHP: 3
   MintNumMaxCount: 100
-  AutoMintNumUpTime: 3
-  MintUpNum: 0.025
-  EiyouzaiBuffTime: 2100
-  EiyouzaiBuffUpCount: 300
-  AutoMintNumTimeBuffCount: 0
-  InitialAutoMintNumUpTime: 5
-  UekibatiNum: 4
+  MintNumMaxCountUpNum: 50
+  AutoMintNumUpTime: 0.25
+  MintUpNum: 1
+  EiyouzaiBuffTime: 0
+  EiyouzaiBuffUpCount: 3
+  AutoMintNumTimeBuffCount: 0.125
+  InitialAutoMintNumUpTime: 0.25
+  UekibatiNum: 0
   UekibatiPowerUpCountMax: 5
-  Damage: 0
+  Damage: 5
   Uekibachi: {fileID: 1459765430432331031}
   InitialUekibachiSize: 100
   UekibachiGiantSize: 1.25
