@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSpeed: 0.5
-  PlayerMaxSpeed: 22.5
+  PlayerMaxSpeed: 25
   MinPlayerSpeed: 5
   InitialPlayerSpeed: 0.5
   rotationSpeed: 360
@@ -167,12 +167,12 @@ MonoBehaviour:
   PlayerHP: 3
   MintNumMaxCount: 100
   MintNumMaxCountUpNum: 50
-  AutoMintNumUpTime: 0.25
+  AutoMintNumUpTime: 0.5
   MintUpNum: 1
   EiyouzaiBuffTime: 0
   EiyouzaiBuffUpCount: 3
-  AutoMintNumTimeBuffCount: 0.125
-  InitialAutoMintNumUpTime: 0.25
+  AutoMintNumTimeBuffCount: 0.18
+  InitialAutoMintNumUpTime: 0.5
   UekibatiNum: 0
   UekibatiPowerUpCountMax: 5
   Damage: 5
