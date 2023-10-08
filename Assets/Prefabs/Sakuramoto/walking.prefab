@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSpeed: 0.5
-  PlayerMaxSpeed: 22.5
+  PlayerMaxSpeed: 25
   MinPlayerSpeed: 5
   InitialPlayerSpeed: 0.5
   rotationSpeed: 360
@@ -167,12 +167,12 @@ MonoBehaviour:
   PlayerHP: 3
   MintNumMaxCount: 100
   MintNumMaxCountUpNum: 50
-  AutoMintNumUpTime: 0.25
+  AutoMintNumUpTime: 0.5
   MintUpNum: 1
   EiyouzaiBuffTime: 0
   EiyouzaiBuffUpCount: 3
-  AutoMintNumTimeBuffCount: 0.125
-  InitialAutoMintNumUpTime: 0.25
+  AutoMintNumTimeBuffCount: 0.18
+  InitialAutoMintNumUpTime: 0.5
   UekibatiNum: 0
   UekibatiPowerUpCountMax: 5
   Damage: 5
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CanUseList: []
   m_UsedList: []
-  m_Prefab: {fileID: 2817144756900690685, guid: 90b4e2281536dc34a82b19f42312e555, type: 3}
+  m_Prefab: {fileID: 49900095502589225, guid: c0c6dfd4d868162448e0cbf05bda6411, type: 3}
   m_ActiveList: []
   m_InitializeCount: 10
   PS: {fileID: 1875403493476591552}
