@@ -15,9 +15,13 @@ public class MintObjectPool : ObjectPool<MintObject>
 
 	public int nCounterCreate = 0;	// 生成数
 
+    public AudioClip sound;
+    private AudioSource audioSource;
+
 	private void Awake()
     {
         Setup(m_InitializeCount);
+		audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -44,6 +48,9 @@ public class MintObjectPool : ObjectPool<MintObject>
 		Vector3 posPlayer = PS.GetComponent<PlayerScripts>().gameObject.transform.position;			// プレイヤー位置
 		Vector3 posRandom = new Vector3(fRandX, 2.2f + (nCounterCreate * 0.025f / fScale), fRandZ);	// ランダム加算位置
 		Vector3 posMint = posPlayer + posRandom;	// 表示位置
+
+		//SEを鳴らす
+		audioSource.PlayOneShot(sound);
 
 		// 位置の設定
 		mintObject.transform.position = posMint;
